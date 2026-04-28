@@ -1,12 +1,12 @@
 public class ItemNota {
     private Produto produto;
-    private double quantidade;
+    private int quantidade;
     private double valorUnitario;
 
-    public ItemNota(Produto produto, double quantidade) {
+    public ItemNota(Produto produto, int quantidade, double valorUnitario) {
         this.produto = produto;
         this.quantidade = quantidade;
-        this.valorUnitario = produto.getPreco();
+        this.valorUnitario = valorUnitario;
     }
 
     public double calcularSubtotal() {
