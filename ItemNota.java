@@ -12,4 +12,7 @@ public class ItemNota {
     public double calcularSubtotal() {
         return this.quantidade * this.valorUnitario;
     }
+
+    public Produto getProduto() { return produto; }
+    public double getQuantidade() { return quantidade; }
 }
