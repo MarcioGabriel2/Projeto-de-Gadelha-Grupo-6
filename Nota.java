@@ -20,6 +20,14 @@ public class Nota {
         calcularTotal();
     }
 
+public void trocarProduto(ItemNota itemAntigo, ItemNota itemNovo) {
+        int index = itens.indexOf(itemAntigo);
+        if (index != -1) {
+            itens.set(index, itemNovo);
+            calcularTotal();
+        }
+    }
+    
     public double calcularTotal() {
         this.valorTotal = 0;
         for (ItemNota item : itens) {
