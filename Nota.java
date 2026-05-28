@@ -2,12 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Nota {
-    private int numero;
+    private int id;
     private List<ItemNota> itens = new ArrayList<>();
     private double valorTotal;
 
-    public Nota(int numero) {
-        this.numero = numero;
+    public Nota() {}
+
+    public Nota(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void adicionarItem(ItemNota item) {
