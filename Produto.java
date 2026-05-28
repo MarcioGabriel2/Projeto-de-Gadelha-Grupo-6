@@ -23,7 +23,7 @@ public class Produto {
         if (preco >= 0) this.preco = preco;
     }
 
-    public void alterarQuantidade(int qtd) {
+    public void alterarQuantidade(double qtd) {
         if (this.quantidadeEstoque + qtd >= 0) {
             this.quantidadeEstoque += qtd;
         }

@@ -22,7 +22,7 @@ public class Sistema {
 
     public void venderProduto(Produto p, double qtd) {
         if (p.getQuantidadeEstoque() >= qtd) {
-            p.alterarQuantidade((int)-qtd);
+            p.alterarQuantidade(-qtd);
             this.totalVendido += (p.getPreco() * qtd);
         } else {
             System.out.println("Estoque insuficiente para a venda!");
@@ -30,7 +30,7 @@ public class Sistema {
     }
 
     public void comprarProduto(Produto p, double qtd) {
-        p.alterarQuantidade((int)qtd);
+        p.alterarQuantidade(qtd);
         this.totalComprado += (p.getPreco() * qtd);
     }
 
