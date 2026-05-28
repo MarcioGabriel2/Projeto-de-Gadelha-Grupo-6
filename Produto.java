@@ -1,4 +1,5 @@
 public class Produto {
+    private int id;
     private String marca;
     private String codigoBarras;
     private double quantidadeEstoque;
@@ -11,7 +12,13 @@ public class Produto {
         this.preco = (preco >= 0) ? preco : 0;
         this.tipo = tipo;
     }
-
+    public Produto(int id, String marca, String codigoBarras, double preco, Tipo tipo) {
+        this.id = id;
+        this.marca = marca;
+        this.codigoBarras = codigoBarras;
+        this.preco = (preco >= 0) ? preco : 0;
+        this.tipo = tipo;
+    }
     public void alterarPreco(double preco) {
         if (preco >= 0) this.preco = preco;
     }
@@ -27,4 +34,7 @@ public class Produto {
     public double getPreco() { return preco; }
     public double getQuantidadeEstoque() { return quantidadeEstoque; }
     public String getMarca() { return marca; }
+    public int getId() { return id; }
+    // setters
+     public void setId(int id) { this.id = id; }
 }
