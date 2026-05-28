@@ -1,4 +1,5 @@
 public class Funcionario {
+    private int id;
     private String nome;
     private String tipo;
     private String senha;
@@ -8,6 +9,13 @@ public class Funcionario {
         this.tipo = tipo;
         this.senha = senha;
     }
+    public Funcionario(int id, String nome, String tipo, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.senha = senha;
+    }
+
     public String getTipo() {
     return tipo;
 }
