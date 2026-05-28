@@ -1,4 +1,5 @@
 public class Tipo {
+    private int id;
     private String nome;
     private String formaVenda;
 
@@ -6,10 +7,16 @@ public class Tipo {
         this.nome = nome;
         this.formaVenda = formaVenda;
     }
-
+    public Tipo(int id, String nome, String formaVenda) {
+        this.id = id;
+        this.nome = nome;
+        this.formaVenda = formaVenda;
+    }
     public void alterarFormaVenda(String f) {
         if (f != null && !f.isEmpty()) this.formaVenda = f;
     }
-
+// Getters e Setters necessários
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getNome() { return nome; }
 }
