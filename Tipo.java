@@ -21,8 +21,9 @@ public class Tipo {
 
 // Getters e Setters necessários
     public int getId() { return id; }
+    public String getFormaVenda() { return formaVenda; }
     public void setId(int id) throws RuntimeException {
-        if (id > 0) this.id = id;   // ID não pode ser negativo
+        if (id >= 0) this.id = id;   // ID não pode ser negativo
         else throw new RuntimeException("ID inválido!");
     }
 
