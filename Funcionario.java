@@ -10,7 +10,7 @@ public class Funcionario {
         this.senha = senha;
     }
     public Funcionario(int id, String nome, String tipo, String senha) {
-        this.id = id;
+        setId(id);
         this.nome = nome;
         this.tipo = tipo;
         this.senha = senha;
@@ -20,7 +20,19 @@ public class Funcionario {
     return tipo;
 }
 
-public boolean funcionario(String nome, String senha) {
+    /*
+    public boolean funcionario(String nome, String senha) {
     return this.nome.equals(nome) && this.senha.equals(senha);
 }
+    */
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) throws RuntimeException {
+        if (id > 0) this.id = id;
+        else throw new RuntimeException;
+        // ID não pode ser negativo
+    }
 }
