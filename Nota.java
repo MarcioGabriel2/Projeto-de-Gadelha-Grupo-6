@@ -21,6 +21,14 @@ public class Nota {
         else throw new RuntimeException("ID inválido!");
     }
 
+    public List<ItemNota> getItens() {
+        return itens;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
     /*
 
     public void adicionarItem(ItemNota item) {
