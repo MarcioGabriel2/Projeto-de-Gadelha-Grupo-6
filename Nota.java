@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Nota {
     private int id;
     private List<ItemNota> itens = new ArrayList<>();
@@ -11,7 +14,7 @@ public class Nota {
     public Nota(int id) {
         setId(id);
     }
-    
+
     public int getId() {
         return id;
     }
@@ -41,7 +44,7 @@ public class Nota {
         calcularTotal();
     }
 
-public void trocarProduto(ItemNota itemAntigo, ItemNota itemNovo) {
+    public void trocarProduto(ItemNota itemAntigo, ItemNota itemNovo) {
         int index = itens.indexOf(itemAntigo);
         if (index != -1) {
             itens.set(index, itemNovo);
