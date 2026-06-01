@@ -1,0 +1,55 @@
+package br.edu.ufersa.sistemaDeLogin.model.DAO;
+
+import br.edu.ufersa.sistemaDeLogin.model.entities.Funcionario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FuncionarioDAO {
+
+
+    public void salvar(Funcionario f) {
+
+        String sql = "INSERT INTO funcionarios (nome, tipo, senha) VALUES (?, ?, ?)";
+
+        try (Connection con = Conexao.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, f.getNome());
+            stmt.setString(2, f.getTipo());
+            stmt.setString(3, f.getSenha());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao salvar funcionário: " + e.getMessage());
+        }
+    }
+
+    public List<Funcionario> listarTodos() {
+        List<Funcionario> funcionarios = new ArrayList<>();
+        String sql = "SELECT * FROM funcionarios";
+
+        try (Connection con = Conexao.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Funcionario f = new Funcionario(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("tipo"),
+                        rs.getString("senha")
+                );
+                funcionarios.add(f);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao listar funcionários: " + e.getMessage());
+        }
+        return funcionarios;
+    }
+
+}
