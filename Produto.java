@@ -13,7 +13,7 @@ public class Produto {
         this.tipo = tipo;
     }
     public Produto(int id, String marca, String codigoBarras, double preco, Tipo tipo) {
-        setID(id);
+        setId(id);
         this.marca = marca;
         this.codigoBarras = codigoBarras;
         alterarPreco(preco);    // Aproveitando validação do método
@@ -28,7 +28,8 @@ public class Produto {
     public void alterarQuantidadeEstoque (double qtd) throws RuntimeException{
         if (this.quantidadeEstoque + qtd >= 0) {
             this.quantidadeEstoque += qtd;  // Aumenta o tamanho máximo da quantidade do estoque
-        else throw new RuntimeException ("Estoque inválido!");
+        } else { 
+            throw new RuntimeException ("Estoque inválido!");
         }
     }
 
@@ -38,6 +39,7 @@ public class Produto {
     public double getQuantidadeEstoque() { return quantidadeEstoque; }
     public String getMarca() { return marca; }
     public int getId() { return id; }
+    public Tipo getTipo() { return tipo; }
 
     // setters
     public void setId(int id) throws RuntimeException {
