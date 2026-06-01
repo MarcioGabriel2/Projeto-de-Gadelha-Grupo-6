@@ -5,14 +5,29 @@ public class ItemNota {
 
     public ItemNota(Produto produto, int quantidade, double valorUnitario) {
         this.produto = produto;
-        this.quantidade = quantidade;
-        this.valorUnitario = valorUnitario;
+        setQuantidade(quantidade);
+        setValorUnitario(valorUnitario);
     }
 
-    public double calcularSubtotal() {
+    /*
+        public double calcularSubtotal() {
         return this.quantidade * this.valorUnitario;
     }
-
+    */
+    // getters
     public Produto getProduto() { return produto; }
     public double getQuantidade() { return quantidade; }
+
+    // setters
+
+    public void setQuantidade(int quantidade) throws RuntimeException {
+        if (quantidade >= 0) this.quantidade = quantidade;
+        else throw new RuntimeException;
+        // Não pode ser negativo
+    }
+    public void setValorUnitario(double valorUnitario) throws RuntimeException {
+        if (valorUnitario >= 0) this.valorUnitario = valorUnitario;
+        else throw new RuntimeException;
+        // Não pode ser negativo
+    }
 }
