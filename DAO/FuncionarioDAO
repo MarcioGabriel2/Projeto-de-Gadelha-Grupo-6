@@ -26,4 +26,27 @@ public class FuncionarioDAO {
         }
     }
 
+    public List<Funcionario> listarTodos() {
+        List<Funcionario> funcionarios = new ArrayList<>();
+        String sql = "SELECT * FROM funcionarios";
+
+        try (Connection con = Conexao.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Funcionario f = new Funcionario(
+                    rs.getInt("id"),
+                    rs.getString("nome"),
+                    rs.getString("tipo"),
+                    rs.getString("senha")
+                );
+                funcionarios.add(f);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao listar funcionários: " + e.getMessage());
+        }
+        return funcionarios;
+    }
+
 }
