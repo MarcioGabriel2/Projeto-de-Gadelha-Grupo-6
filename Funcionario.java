@@ -17,8 +17,16 @@ public class Funcionario {
     }
 
     public String getTipo() {
-    return tipo;
-}
+        return tipo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
 
     /*
     public boolean funcionario(String nome, String senha) {
@@ -30,9 +38,14 @@ public class Funcionario {
         return id;
     }
 
-    public void setId(int id) throws RuntimeException {
-        if (id > 0) this.id = id;
-        else throw new RuntimeException;
+    public void setId(int id) {
+        if (id >= 0) { // Corrigido para >= para aceitar o zero
+            this.id = id;
+        } else {
+            throw new IllegalArgumentException("ID inválido: O ID não pode ser negativo.");
+        }
         // ID não pode ser negativo
     }
+
+
 }
