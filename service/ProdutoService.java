@@ -15,7 +15,7 @@ public class ProdutoService {
     public void venderProduto(Produto p, double qtd) {
         // validação para ver se tem estoque suficiente
         if (p.getQuantidadeEstoque() >= qtd) {
-            p.alterarQuantidadeEstoque(-qtd);   
+            p.alterarQuantidadeEstoque(-qtd);
         } else {
             throw new IllegalArgumentException("Estoque insuficiente para a venda!");
         }

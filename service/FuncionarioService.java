@@ -7,11 +7,11 @@ import java.util.List;
 public class FuncionarioService {
     private FuncionarioDAO funcionarioDAO;
 
-    
+
     public FuncionarioService(FuncionarioDAO funcionarioDAO) {
         this.funcionarioDAO = funcionarioDAO;
     }
-  
+
     public Funcionario login(String nome, String senha) {
         // Busca todos os funcionários do banco usando o DAO
         List<Funcionario> funcionarios = funcionarioDAO.listarTodos();
@@ -19,10 +19,10 @@ public class FuncionarioService {
         // procura nome e senha iguais
         for (Funcionario f : funcionarios) {
             if (f.getNome().equals(nome) && f.getSenha().equals(senha)) {
-                return f; 
+                return f;
             }
         }
-        
+
         // não achou ninguem
         throw new IllegalArgumentException("Usuário ou senha incorretos!");
     }
