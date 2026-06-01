@@ -9,6 +9,7 @@ public class Sistema {
     private double totalVendido;
     private double totalComprado;
 
+    /*
     public void cadastrarProduto(Produto p) {
         produtos.add(p);
     }
@@ -33,7 +34,7 @@ public class Sistema {
         p.alterarQuantidade(qtd);
         this.totalComprado += (p.getPreco() * qtd);
     }
-
+    */
     // getter
     public double getTotalVendido() { return totalVendido; }
 }
