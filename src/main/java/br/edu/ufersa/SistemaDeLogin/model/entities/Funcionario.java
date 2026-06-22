@@ -2,8 +2,8 @@ package br.edu.ufersa.SistemaDeLogin.model.entities;
 
 public class Funcionario {
     private int id;
-    private String nome;
-    private String tipo;
+    private String nome;    // Nome ou Email do Usuário
+    private String tipo;    // Tipo ou Cargo do Funcionário
     private String senha;
 
     public Funcionario(String nome, String tipo, String senha) {
