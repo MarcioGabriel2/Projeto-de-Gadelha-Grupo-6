@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="690.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/Coisas%20de%20Marcio%20v2/Ufersa%20-%20Marcio/POO/Projeto%20Supermercado/Figma/Prints/Gerenciamento%20de%20Produtos%20(tipos).png" />
+         </image>
+      </ImageView>
+      <Button layoutX="910.0" layoutY="17.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="32.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="118.0" text="menuDashboard" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="158.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" text="menuProdutos" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="274.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuVendas" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="378.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="505.0" layoutY="234.0" mnemonicParsing="false" opacity="0.0" prefHeight="29.0" prefWidth="470.0" text="submenuTipos" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="33.0" layoutY="234.0" mnemonicParsing="false" opacity="0.0" prefHeight="29.0" prefWidth="470.0" text="submenuProdutos" textFill="TRANSPARENT" />
+      <Button layoutX="700.0" layoutY="446.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="36.0" text="Apagar" textFill="TRANSPARENT" />
+      <Button layoutX="700.0" layoutY="495.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="36.0" text="Apagar" textFill="TRANSPARENT" />
+      <Button layoutX="700.0" layoutY="546.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="36.0" text="Apagar" textFill="TRANSPARENT" />
+      <Button layoutX="654.0" layoutY="446.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="38.0" text="Editar" textFill="TRANSPARENT" />
+      <Button layoutX="654.0" layoutY="495.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="38.0" text="Editar" textFill="TRANSPARENT" />
+      <Button layoutX="654.0" layoutY="546.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="38.0" text="Editar" textFill="TRANSPARENT" />
+      <Button layoutX="854.0" layoutY="275.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="124.0" text="+ Novo Tipo" textFill="TRANSPARENT" />
+      <Button layoutX="654.0" layoutY="592.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="38.0" text="Editar" textFill="TRANSPARENT" />
+      <Button layoutX="700.0" layoutY="592.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="36.0" text="Apagar" textFill="TRANSPARENT" />
+   </children>
+</AnchorPane>
