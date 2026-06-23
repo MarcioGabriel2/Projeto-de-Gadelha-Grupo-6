@@ -26,7 +26,7 @@ public class LoginController {
     }
 
     @FXML
-    private void handleIrParaAlterarSenha(ActionEvent event) {
+    private void handleIrParaEsqueceuSenha(ActionEvent event) {
         Navegacao.trocarTela("/Telas fxml/Tela de Alterar Senha.fxml", event);
     }
 
