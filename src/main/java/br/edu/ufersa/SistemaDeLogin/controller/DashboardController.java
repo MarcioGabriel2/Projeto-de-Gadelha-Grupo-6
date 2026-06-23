@@ -7,21 +7,21 @@ public class DashboardController {
 
     @FXML
     private void handleIrParaProdutos(ActionEvent event) {
-        Navegacao.trocarTela("/views/Gerenciando Produtos 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos 1 Final.fxml", event);
     }
 
     @FXML
     private void handleIrParaVendas(ActionEvent event) {
-        Navegacao.trocarTela("/views/TelaDeVendas.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/TelaDeVendas.fxml", event);
     }
 
     @FXML
     private void handleIrParaCompras(ActionEvent event) {
-        Navegacao.trocarTela("/views/TelaDeCompras.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/TelaDeCompras.fxml", event);
     }
 
     @FXML
     private void handleSair(ActionEvent event) {
-        Navegacao.trocarTela("/views/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
     }
 }

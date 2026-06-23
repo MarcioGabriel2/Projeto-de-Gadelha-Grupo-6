@@ -19,7 +19,7 @@ public class LoginController {
 
         if (email.equals("admin@gmail.com") && senha.equals("123")) {
             System.out.println("Login efetuado! Redirecionando para o Dashboard...");
-            Navegacao.trocarTela("/views/Dashboard Final.fxml", event);
+            Navegacao.trocarTela("/Telas fxml/Dashboard Final.fxml", event);
         } else {
             exibirAlerta("Erro de Login", "Usuário ou senha inválidos.", AlertType.ERROR);
         }
@@ -27,12 +27,12 @@ public class LoginController {
 
     @FXML
     private void handleIrParaAlterarSenha(ActionEvent event) {
-        Navegacao.trocarTela("/views/Tela de Alterar Senha.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Tela de Alterar Senha.fxml", event);
     }
 
     @FXML
     private void handleIrParaCadastro(ActionEvent event) {
-        Navegacao.trocarTela("/views/Tela de Cadastro.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Tela de Cadastro.fxml", event);
     }
 
     private void exibirAlerta(String titulo, String mensagem, AlertType tipo) {

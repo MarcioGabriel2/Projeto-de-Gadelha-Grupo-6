@@ -14,12 +14,12 @@ public class ProdutoModalController {
     @FXML
     private void handleSalvarProduto(ActionEvent event) {
         System.out.println("Produto salvo/atualizado na base de dados!");
-        Navegacao.trocarTela("/views/Gerenciando Produtos 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos 1 Final.fxml", event);
     }
 
     @FXML
     private void handleFechar(ActionEvent event) {
         // O botão do X para fechar a janela e voltar
-        Navegacao.trocarTela("/views/Gerenciando Produtos 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos 1 Final.fxml", event);
     }
 }

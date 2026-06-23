@@ -6,23 +6,23 @@ import javafx.event.ActionEvent;
 public class GerenciamentoTiposController {
 
     @FXML
-    private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/views/Dashboard Final.fxml", event); }
+    private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Dashboard Final.fxml", event); }
 
     @FXML
-    private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/views/Gerenciando Produtos 1 Final.fxml", event); }
+    private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos 1 Final.fxml", event); }
 
     @FXML
-    private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/views/TelaDeVendas.fxml", event); }
+    private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/TelaDeVendas.fxml", event); }
 
     @FXML
-    private void handleIrParaCompras(ActionEvent event) { Navegacao.trocarTela("/views/Tela de Compras.fxml", event); }
+    private void handleIrParaCompras(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Tela de Compras.fxml", event); }
 
     @FXML
-    private void handleSair(ActionEvent event) { Navegacao.trocarTela("/views/Tela de Login 1 Final.fxml", event); }
+    private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event); }
 
     @FXML
     private void handleNovoTipo(ActionEvent event) {
-        Navegacao.trocarTela("/views/Criando novo Tipo.fxml", event);
+        Navegacao.trocarTela("/Telas fxml/Criando novo Tipo.fxml", event);
     }
 
     @FXML
