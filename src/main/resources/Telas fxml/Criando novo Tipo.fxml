@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="690.0" fitWidth="1025.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image />
+            <Image url="@/Imagens/Criando novo tipo 2.png" />
          </image>
       </ImageView>
       <Button layoutX="901.0" layoutY="17.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
