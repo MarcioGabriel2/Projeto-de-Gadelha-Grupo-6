@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="711.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://imgur.com/a/ZKPa881" />
+         </image>
+      </ImageView>
+      <TextField layoutX="271.0" layoutY="209.0" opacity="0.0" prefHeight="25.0" prefWidth="426.0" text="Marca" />
+      <ToggleButton layoutX="379.0" layoutY="75.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="274.0" layoutY="75.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="96.0" text="menuVendas" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="155.0" layoutY="75.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" text="menuProdutos" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="30.0" layoutY="75.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="118.0" text="menuDashboard" textFill="TRANSPARENT" />
+      <Button layoutX="908.0" layoutY="18.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
+      <Button layoutX="56.0" layoutY="375.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="573.0" text="+ Adicionar à Compra" />
+      <Button layoutX="700.0" layoutY="338.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="250.0" text="Finalizar Compra" />
+      <Button layoutX="701.0" layoutY="384.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="250.0" text="Cancelar Nota" />
+      <MenuButton layoutX="56.0" layoutY="321.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="180.22" text="Detergente Ypê">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Button layoutX="253.0" layoutY="321.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="180.22" text="1 (Quantidade)" />
+      <Button layoutX="449.0" layoutY="321.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="180.22" text="2.3 (Preço Unitário)" />
+      <Button layoutX="563.0" layoutY="580.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="38.0" text="Excluir" />
+      <Button layoutX="518.0" layoutY="580.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="38.0" text="Editar" />
+   </children>
+</AnchorPane>

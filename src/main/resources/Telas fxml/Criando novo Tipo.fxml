@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="690.0" fitWidth="1025.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/Coisas%20de%20Marcio%20v2/Ufersa%20-%20Marcio/POO/Projeto%20Supermercado/Figma/Prints/Criando%20novo%20tipo%202.png" />
+            <Image />
          </image>
       </ImageView>
       <Button layoutX="901.0" layoutY="17.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
