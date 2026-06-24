@@ -9,20 +9,20 @@
    <children>
       <ImageView fitHeight="690.0" fitWidth="1025.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image />
+            <Image url="@../Imagens/Editando_produto_2.png" />
          </image>
       </ImageView>
       <TextField layoutX="271.0" layoutY="209.0" opacity="0.0" prefHeight="25.0" prefWidth="426.0" text="Marca" />
       <TextField layoutX="281.0" layoutY="279.0" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Código de Barras" />
       <MenuButton layoutX="281.0" layoutY="427.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Selecione um tipo">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
       </MenuButton>
       <Button layoutX="656.0" layoutY="552.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="87.0" text="Atualizar" />
       <Button layoutX="732.0" layoutY="195.0" mnemonicParsing="false" opacity="0.0" prefHeight="16.0" prefWidth="16.0" text="X" />
-      <TextField layoutX="281.0" layoutY="352.0" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Código de Brras" />
+      <TextField layoutX="281.0" layoutY="352.0" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Código de Barras" />
       <TextField layoutX="282.0" layoutY="498.0" opacity="0.0" prefHeight="36.0" prefWidth="222.0" text="Quantidade" />
       <TextField layoutX="521.0" layoutY="498.0" opacity="0.0" prefHeight="36.0" prefWidth="222.0" text="Preço (R$)" />
       <ToggleButton layoutX="380.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />

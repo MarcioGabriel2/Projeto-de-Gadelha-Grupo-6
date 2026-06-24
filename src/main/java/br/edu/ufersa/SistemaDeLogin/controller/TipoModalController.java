@@ -11,11 +11,11 @@ public class TipoModalController {
     @FXML
     private void handleCadastrarTipo(ActionEvent event) {
         System.out.println("Novo Tipo cadastrado!");
-        Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos (Tipos).fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos (Tipos).fxml", event);
     }
 
     @FXML
     private void handleFechar(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos (Tipos).fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos (Tipos).fxml", event);
     }
 }

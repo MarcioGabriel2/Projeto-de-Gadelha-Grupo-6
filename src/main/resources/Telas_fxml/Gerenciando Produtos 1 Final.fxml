@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="656.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="https://imgur.com/a/OY7YAmj" />
+            <Image url="@../Imagens/Gerenciamento_de_Produtos.png" />
          </image>
       </ImageView>
       <Button layoutX="910.0" layoutY="17.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />

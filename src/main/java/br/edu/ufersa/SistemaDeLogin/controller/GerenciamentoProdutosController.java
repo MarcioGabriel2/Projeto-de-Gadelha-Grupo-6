@@ -17,7 +17,7 @@ public class GerenciamentoProdutosController {
     @FXML
     private void handleEditarProduto(ActionEvent event) {
         System.out.println("Abrindo modal ou tela para editar dados do produto...");
-        Navegacao.trocarTela("/Telas fxml/CriarProduto.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/CriarProduto.fxml", event);
     }
 
     @FXML
@@ -27,11 +27,11 @@ public class GerenciamentoProdutosController {
 
     @FXML
     private void handleIrParaDashboard(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Dashboard Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event);
     }
 
     @FXML
     private void handleSair(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 }

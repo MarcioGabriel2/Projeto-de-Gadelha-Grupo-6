@@ -5,20 +5,20 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.TipoModalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="690.0" fitWidth="1025.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Imagens/Criando_novo_tipo2.png" />
+            <Image url="@../Imagens/Criando_novo_tipo_2.png" />
          </image>
       </ImageView>
-      <Button layoutX="901.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleFechar" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
+      <Button layoutX="901.0" layoutY="17.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
       <ToggleButton layoutX="24.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="118.0" text="menuDashboard" textFill="TRANSPARENT" />
       <ToggleButton layoutX="150.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" text="menuProdutos" textFill="TRANSPARENT" />
       <ToggleButton layoutX="266.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuVendas" textFill="TRANSPARENT" />
       <ToggleButton layoutX="370.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />
       <Button layoutX="723.0" layoutY="262.0" mnemonicParsing="false" opacity="0.0" prefHeight="16.0" prefWidth="16.0" text="X" textFill="TRANSPARENT" />
-      <Button layoutX="643.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleCadastrarTipo" opacity="0.0" prefHeight="35.0" prefWidth="92.0" text="Cadastrar" textFill="TRANSPARENT" />
+      <Button layoutX="643.0" layoutY="479.0" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="92.0" text="Cadastrar" textFill="TRANSPARENT" />
       <TextField layoutX="273.0" layoutY="345.0" opacity="0.0" prefHeight="36.0" prefWidth="462.0" />
       <MenuButton layoutX="273.0" layoutY="422.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="MenuButton">
         <items>
