@@ -15,17 +15,17 @@ public class CadastroController {
     @FXML
     private void handleCriarConta(ActionEvent event) {
         System.out.println("Criando conta para: " + txtEmailCadastro.getText());
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 
     @FXML
     private void handleAlterarSenha(ActionEvent event) {
         System.out.println("Senha alterada com sucesso!");
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 
     @FXML
     private void handleVoltarParaLogin(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 }

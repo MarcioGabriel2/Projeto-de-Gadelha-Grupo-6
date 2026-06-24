@@ -1,4 +1,17 @@
 package org.example;
+
+import br.edu.ufersa.SistemaDeLogin.view.MainApp;
+
+public class Main {
+    public static void main(String[] args) {
+        MainApp.main(args);
+    }
+}
+
+/*
+
+package org.example;
+
 import br.edu.ufersa.SistemaDeLogin.model.DAO.FuncionarioDAO;
 import br.edu.ufersa.SistemaDeLogin.model.entities.Funcionario;
 
@@ -14,3 +27,5 @@ public class Main {
 
     }
 }
+
+*/

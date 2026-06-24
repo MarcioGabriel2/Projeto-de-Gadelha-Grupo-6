@@ -7,13 +7,13 @@ public class ComprasController {
 
     // --- Navegação do Menu Superior ---
     @FXML
-    private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Dashboard Final.fxml", event); }
+    private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event); }
 
     @FXML
-    private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Gerenciando Produtos 1 Final.fxml", event); }
+    private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos 1 Final.fxml", event); }
 
     @FXML
-    private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Tela de Vendas.fxml", event); }
+    private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Tela de Vendas.fxml", event); }
 
     @FXML
     private void handleIrParaCompras(ActionEvent event) {
@@ -21,7 +21,7 @@ public class ComprasController {
     }
 
     @FXML
-    private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event); }
+    private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event); }
 
     // --- Ações da Tela de Compras ---
     @FXML

@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="711.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="https://imgur.com/a/ZKPa881" />
+            <Image url="@../Imagens/Compras_2.png" />
          </image>
       </ImageView>
       <TextField layoutX="271.0" layoutY="209.0" opacity="0.0" prefHeight="25.0" prefWidth="426.0" text="Marca" />
