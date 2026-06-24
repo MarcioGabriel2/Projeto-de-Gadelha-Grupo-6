@@ -1,37 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.CadastroController">
    <children>
-      <ImageView fitHeight="728.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="https://imgur.com/a/crYvC0G" />
-         </image>
-      </ImageView>
-      <TextField layoutX="377.0" layoutY="305.0" opacity="0.0" prefHeight="20.0" prefWidth="257.0" text="Pedrinhovendas@gmail.com">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleVoltarLogin" style="-fx-background-color: transparent; -fx-cursor: hand;" text="&lt; Voltar ao Login" textFill="#8b3dff">
          <font>
-            <Font name="Webdings" size="14.0" />
+            <Font size="15.0" />
          </font>
-      </TextField>
-      <Button layoutX="369.0" layoutY="553.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="274.0" text="Criar Conta" />
-      <PasswordField layoutX="377.0" layoutY="492.0" opacity="0.0" prefHeight="20.0" prefWidth="257.0" text="******">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </PasswordField>
-      <Button layoutX="951.0" layoutY="695.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="48.0" text="Entrar" />
-      <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="124.0" text="Entrar" />
-      <MenuButton layoutX="367.0" layoutY="392.0" mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="274.0" text="Escolha um cargo...">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
+      </Button>
+
+      <Pane layoutX="270.0" layoutY="80.0" prefHeight="560.0" prefWidth="470.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-border-color: #E0E0E0; -fx-border-radius: 15;">
+         <children>
+
+            <Label layoutX="112.0" layoutY="50.0" style="-fx-font-weight: bold;" text="Mercadinho do Sr. Pedrinho">
+               <font>
+                  <Font name="Disket Mono" size="17.0" />
+               </font>
+            </Label>
+
+            <Label layoutX="50.0" layoutY="110.0" text="Senha de Administrador*" textFill="#808080" />
+            <PasswordField fx:id="txtSenhaAdmin" layoutX="50.0" layoutY="135.0" prefHeight="40.0" prefWidth="370.0" promptText="********" style="-fx-background-radius: 8; -fx-border-color: #CCCCCC; -fx-border-radius: 8;" />
+
+            <Label layoutX="50.0" layoutY="195.0" text="E-mail" textFill="#808080" />
+            <TextField fx:id="txtEmail" layoutX="50.0" layoutY="220.0" prefHeight="40.0" prefWidth="370.0" promptText="Pedrinhovendas@gmail.com" style="-fx-background-radius: 8; -fx-border-color: #CCCCCC; -fx-border-radius: 8;" />
+
+            <Label layoutX="50.0" layoutY="280.0" text="Cargo" textFill="#808080" />
+            <ComboBox fx:id="cbCargo" layoutX="50.0" layoutY="305.0" prefHeight="40.0" prefWidth="370.0" promptText="Escolha um cargo..." style="-fx-background-radius: 8; -fx-border-color: #CCCCCC; -fx-border-radius: 8; -fx-background-color: #FFFFFF;" />
+
+            <Label layoutX="50.0" layoutY="365.0" text="Senha" textFill="#808080" />
+            <PasswordField fx:id="txtSenha" layoutX="50.0" layoutY="390.0" prefHeight="40.0" prefWidth="370.0" promptText="********" style="-fx-background-radius: 8; -fx-border-color: #CCCCCC; -fx-border-radius: 8;" />
+
+            <Button layoutX="50.0" layoutY="460.0" mnemonicParsing="false" onAction="#handleCriarConta" prefHeight="45.0" prefWidth="370.0" style="-fx-background-color: #8b3dff; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" text="Criar Conta">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+
+            <Label layoutX="80.0" layoutY="524.0" text="*Uma senha de Administrador é necessária para criar uma conta" textFill="#a0a0a0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="50.0" layoutY="40.0">
+               <image>
+                  <Image url="@../Imagens/Container.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+
+      <Label layoutX="835.0" layoutY="680.0" text="Já possui uma conta?" textFill="#808080" />
+      <Button layoutX="948.0" layoutY="676.0" mnemonicParsing="false" onAction="#handleVoltarLogin" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Entrar" textFill="#8b3dff" />
    </children>
 </AnchorPane>

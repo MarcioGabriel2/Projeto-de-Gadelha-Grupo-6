@@ -10,14 +10,19 @@ public class TesteTela extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Ajuste o caminho abaixo conforme a pasta que definimos antes
+        // Inicializa o teste abrindo a nova tela de Login
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Telas fxml/Tela de Login 1 Final.fxml"));
         Parent root = loader.load();
 
-        primaryStage.setTitle("Teste da Tela de Login");
+        primaryStage.setTitle("Testando Sistema - Mercadinho do Sr. Pedrinho");
         primaryStage.setScene(new Scene(root));
+
+        // Mantém a janela com tamanho fixo para preservar o design planejado
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
