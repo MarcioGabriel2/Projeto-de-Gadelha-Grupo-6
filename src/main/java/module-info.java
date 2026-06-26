@@ -1,13 +1,12 @@
-module SisLogin3 {
+module SistemaSupermercado {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql; // Se estiver usando banco de dados
+    requires java.sql;
 
-    // Isso aqui é o que resolve o seu erro:
-    opens br.edu.ufersa.SistemaDeLogin.controller to javafx.fxml;
+    // Permite que o JavaFX leia as suas telas e controladores
+    opens org.example to javafx.fxml;
+    opens resources.Telas_fxml to javafx.fxml;
 
-    // Provavelmente você também vai precisar abrir o pacote da View:
-    opens br.edu.ufersa.SistemaDeLogin.view to javafx.fxml;
-
-    exports br.edu.ufersa.SistemaDeLogin.view;
+    // Exporta o pacote principal para o Java conseguir rodar o projeto
+    exports org.example;
 }
