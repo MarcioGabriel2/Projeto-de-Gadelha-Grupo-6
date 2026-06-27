@@ -22,18 +22,18 @@ public class AlterarSenhaController {
             System.out.println("Senha alterada com sucesso para o email: " + email);
             exibirAlerta("Sucesso", "Sua senha foi alterada com sucesso!", AlertType.INFORMATION);
 
-            Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+            Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
         }
     }
 
     @FXML
     private void handleVoltarLogin(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 
     @FXML
     private void handleIrParaCadastro(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Tela de Cadastro.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Cadastro.fxml", event);
     }
 
     private void exibirAlerta(String titulo, String mensagem, AlertType tipo) {

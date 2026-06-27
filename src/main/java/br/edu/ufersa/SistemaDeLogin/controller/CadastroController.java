@@ -42,17 +42,17 @@ public class CadastroController {
         exibirAlerta("Sucesso", "Conta criada com sucesso!", AlertType.INFORMATION);
 
         // Após criar a conta, volta para a tela de Login
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 
     @FXML
     private void handleVoltarLogin(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 
     @FXML
     private void handleIrParaLogin(ActionEvent event) {
-        Navegacao.trocarTela("/Telas fxml/Tela de Login 1 Final.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
 
     private void exibirAlerta(String titulo, String mensagem, AlertType tipo) {
