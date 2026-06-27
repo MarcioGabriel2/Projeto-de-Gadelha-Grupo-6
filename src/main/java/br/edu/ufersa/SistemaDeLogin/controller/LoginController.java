@@ -32,7 +32,7 @@ public class LoginController {
         if (autenticarUsuario(email, senha)) {
             System.out.println("Login efetuado! Redirecionando para o Dashboard...");
             // IMPORTANTE: Renomeie o arquivo FXML real para não conter espaços
-            Navegacao.trocarTela("/telas_fxml/dashboard_final.fxml", event);
+            Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event);
         } else {
             exibirAlerta("Erro de Login", "Usuário ou senha inválidos.", AlertType.ERROR);
         }
