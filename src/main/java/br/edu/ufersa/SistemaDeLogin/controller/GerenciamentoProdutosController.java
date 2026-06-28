@@ -15,8 +15,8 @@ public class GerenciamentoProdutosController {
     }
 
     @FXML
-    private void handleEditarProduto(ActionEvent event) {
-        System.out.println("Abrindo modal ou tela para editar dados do produto...");
+    public void handleNovoProduto(ActionEvent event) {
+        // Vai para a tela de cadastrar um produto novo
         Navegacao.trocarTela("/Telas_fxml/CriarProduto.fxml", event);
     }
 

@@ -24,4 +24,9 @@ public class DashboardController {
     private void handleSair(ActionEvent event) {
         Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }
+    @FXML
+    public void initialize() {
+        // No futuro, aqui você fará a lógica para buscar no banco de dados
+        // a quantidade de produtos e os valores em R$ para preencher a tela.
+    }
 }

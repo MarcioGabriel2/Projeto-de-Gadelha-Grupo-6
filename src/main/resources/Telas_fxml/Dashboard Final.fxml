@@ -38,10 +38,8 @@
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
 
-            <Button layoutX="150.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📦 Produtos">
-               <font><Font name="System Bold" size="13.0" /></font>
+            <Button layoutX="150.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📦 Produtos">
             </Button>
-
             <Button layoutX="250.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
