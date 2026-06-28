@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.CadastroController">
+   <children>
+      <ImageView fitHeight="728.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/3_Tela_de_Cadastro.png" />
+         </image>
+      </ImageView>
+
+      <TextField fx:id="txtEmail" layoutX="368.0" layoutY="324.0" prefHeight="39.0" prefWidth="274.0" promptText="Pedrinhovendas@gmail.com" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+
+      <PasswordField fx:id="txtSenha" layoutX="368.0" layoutY="518.0" prefHeight="36.0" prefWidth="274.0" promptText="******" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+
+      <MenuButton fx:id="menuCargo" layoutX="367.0" layoutY="417.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="274.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Escolha um cargo...">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Gerente" />
+            <MenuItem mnemonicParsing="false" text="Funcionário" />
+         </items>
+      </MenuButton>
+
+      <Button layoutX="368.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleCriarConta" prefHeight="39.0" prefWidth="274.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+
+      <Button layoutX="951.0" layoutY="695.0" mnemonicParsing="false" onAction="#handleVoltarLogin" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+
+      <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleVoltarLogin" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+
+      <!-- Nomeado para txtSenhaAdmin para bater com o Controller -->
+      <PasswordField fx:id="txtSenhaAdmin" layoutX="368.0" layoutY="229.0" prefHeight="36.0" prefWidth="274.0" promptText="Senha de Administrador" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

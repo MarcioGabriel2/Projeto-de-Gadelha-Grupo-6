@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.EditarProdutoController">
+   <children>
+      <ImageView fitHeight="690.0" fitWidth="1025.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/7_Editando_produto.png" />
+         </image>
+      </ImageView>
+
+      <TextField fx:id="txtMarca" layoutX="281.0" layoutY="277.0" prefHeight="36.0" prefWidth="462.0" promptText="Marca" style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a;" />
+      <TextField fx:id="txtCodigo" layoutX="281.0" layoutY="351.0" prefHeight="36.0" prefWidth="462.0" promptText="Código de Barras" style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a;" />
+
+      <MenuButton fx:id="menuTipo" layoutX="281.0" layoutY="423.0" mnemonicParsing="false" opacity="1.0" prefHeight="36.0" prefWidth="462.0" text="Selecione um tipo">
+         <items>
+         </items>
+      </MenuButton>
+
+      <TextField fx:id="txtQuantidade" layoutX="282.0" layoutY="498.0" prefHeight="36.0" prefWidth="222.0" promptText="Quantidade" style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a;" />
+      <TextField fx:id="txtPreco" layoutX="521.0" layoutY="498.0" prefHeight="36.0" prefWidth="222.0" promptText="Preço (R$)" style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a;" />
+
+      <Button layoutX="656.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleAtualizar" opacity="0.0" prefHeight="36.0" prefWidth="87.0" style="-fx-cursor: hand;" text="Atualizar" />
+      <Button layoutX="732.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleCancelar" opacity="0.0" prefHeight="16.0" prefWidth="16.0" style="-fx-cursor: hand;" text="X" />
+
+      <ToggleButton layoutX="380.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaCompras" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuCompras" />
+      <ToggleButton layoutX="276.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaVendas" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuVendas" />
+      <ToggleButton layoutX="160.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" opacity="0.0" prefHeight="30.0" prefWidth="110.0" style="-fx-cursor: hand;" text="menuProdutos" />
+      <ToggleButton layoutX="34.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaDashboard" opacity="0.0" prefHeight="30.0" prefWidth="118.0" style="-fx-cursor: hand;" text="menuDashboard" />
+      <Button layoutX="922.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleSair" opacity="0.0" prefHeight="30.0" prefWidth="74.0" style="-fx-cursor: hand;" text="Sair" />
+   </children>
+</AnchorPane>
