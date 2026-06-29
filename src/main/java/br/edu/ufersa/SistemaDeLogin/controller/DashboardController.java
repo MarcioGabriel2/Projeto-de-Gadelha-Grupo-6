@@ -12,12 +12,12 @@ public class DashboardController {
 
     @FXML
     private void handleIrParaVendas(ActionEvent event) {
-        Navegacao.trocarTela("/Telas_fxml/TelaDeVendas.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela De Vendas.fxml", event);
     }
 
     @FXML
     private void handleIrParaCompras(ActionEvent event) {
-        Navegacao.trocarTela("/Telas_fxml/TelaDeCompras.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/Tela De Compras.fxml", event);
     }
 
     @FXML

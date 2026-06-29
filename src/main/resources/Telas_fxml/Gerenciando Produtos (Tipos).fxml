@@ -36,10 +36,10 @@
          <Button layoutX="140.0" layoutY="8.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #0f172a; -fx-background-radius: 6; -fx-cursor: hand;" text="📦 Produtos" textFill="WHITE">
             <font><Font name="System Bold" size="13.0" /></font>
          </Button>
-         <Button layoutX="260.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
+         <Button layoutX="260.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaVendas" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
             <font><Font name="System Bold" size="13.0" /></font>
          </Button>
-         <Button layoutX="350.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
+         <Button layoutX="350.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaCompras" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
             <font><Font name="System Bold" size="13.0" /></font>
          </Button>
       </children>

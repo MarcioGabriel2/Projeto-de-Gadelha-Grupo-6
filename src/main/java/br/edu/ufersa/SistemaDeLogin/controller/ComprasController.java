@@ -39,12 +39,6 @@ public class ComprasController {
     }
 
     @FXML
-    public void handleIrParaHistorico(ActionEvent event) {
-        // Navega para a aba de Histórico
-        Navegacao.trocarTela("/Telas_fxml/Tela de Compras 2.fxml", event);
-    }
-
-    @FXML
     public void handleSair(ActionEvent event) {
         Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
     }

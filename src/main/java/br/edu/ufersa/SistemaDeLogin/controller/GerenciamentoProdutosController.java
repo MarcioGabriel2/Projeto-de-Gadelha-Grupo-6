@@ -62,4 +62,13 @@ public class GerenciamentoProdutosController {
     public void handleIrParaTipos(ActionEvent event) {
         Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos (Tipos).fxml", event);
     }
+    @FXML
+    public void handleIrParaVendas(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Tela de Vendas.fxml", event);
+    }
+    @FXML
+    public void handleIrParaCompras(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Tela de Compras.fxml", event);
+    }
+    
 }

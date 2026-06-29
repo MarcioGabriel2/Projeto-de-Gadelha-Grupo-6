@@ -29,6 +29,10 @@ public class VendasController {
     public void handleIrParaProdutos(ActionEvent event) {
         Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos 1 Final.fxml", event);
     }
+    @FXML
+    public void handleIrParaCompras(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Tela de Compras.fxml", event);
+    }
 
     @FXML
     public void handleIrParaHistorico(ActionEvent event) {

@@ -25,8 +25,14 @@ public class LoginController {
         String senha = txtSenha.getText();
 
         // Teste rápido ignorando o banco de dados temporariamente
-        if (email.equals("admin") && senha.equals("123")) {
+        if (email.isEmpty() || senha.isEmpty()) {
+            exibirAlerta("Campos Vazios", "Por favor, preencha todos os campos.", AlertType.WARNING);
+            return;
+        }
+
+        if (autenticarUsuario(email, senha)) {
             System.out.println("Login efetuado! Redirecionando para o Dashboard...");
+            // IMPORTANTE: Renomeie o arquivo FXML real para não conter espaços
             Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event);
         } else {
             exibirAlerta("Erro de Login", "Usuário ou senha inválidos.", AlertType.ERROR);

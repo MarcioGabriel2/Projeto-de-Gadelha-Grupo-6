@@ -40,11 +40,12 @@
 
             <Button layoutX="150.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📦 Produtos">
             </Button>
-            <Button layoutX="250.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
+
+            <Button layoutX="250.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaVendas" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
 
-            <Button layoutX="340.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
+            <Button layoutX="340.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaCompras" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
          </children>
@@ -65,10 +66,10 @@
             <Label alignment="CENTER" layoutX="165.0" layoutY="15.0" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #3b82f6; -fx-background-radius: 8;" text="📦" textFill="WHITE">
                <font><Font size="16.0" /></font>
             </Label>
-            <Label layoutX="20.0" layoutY="65.0" style="-fx-font-weight: bold;" text="3">
+            <Label layoutX="20.0" layoutY="65.0" style="-fx-font-weight: bold;" text="0">
                <font><Font size="28.0" /></font>
             </Label>
-            <Label layoutX="20.0" layoutY="105.0" text="120 unidades em estoque" textFill="#9ca3af">
+            <Label layoutX="20.0" layoutY="105.0" text="0 unidades em estoque" textFill="#9ca3af">
                <font><Font size="11.0" /></font>
             </Label>
          </children>

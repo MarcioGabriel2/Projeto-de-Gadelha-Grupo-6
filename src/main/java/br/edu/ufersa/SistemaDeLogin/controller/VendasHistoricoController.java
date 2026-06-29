@@ -29,7 +29,10 @@ public class VendasHistoricoController {
         // Volta para a tela de bipar os produtos (A primeira versão fixa)
         Navegacao.trocarTela("/Telas_fxml/Tela de Vendas.fxml", event);
     }
-
+    @FXML
+    public void handleIrParaCompras(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Tela de Compras.fxml", event);
+    }
     @FXML
     public void handleSair(ActionEvent event) {
         Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);

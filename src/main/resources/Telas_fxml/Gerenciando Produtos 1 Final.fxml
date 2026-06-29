@@ -28,7 +28,7 @@
                <font><Font size="11.0" /></font>
             </Label>
 
-            <Button layoutX="930.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 6; -fx-cursor: hand;" text="Sair" />
+            <Button layoutX="930.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleSair" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 6; -fx-cursor: hand;" text="Sair" />
          </children>
       </Pane>
 
@@ -42,11 +42,11 @@
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
 
-            <Button layoutX="260.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
+            <Button layoutX="260.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaVendas" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛍️ Vendas">
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
 
-            <Button layoutX="350.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
+            <Button layoutX="350.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaCompras" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
                <font><Font name="System Bold" size="13.0" /></font>
             </Button>
          </children>
