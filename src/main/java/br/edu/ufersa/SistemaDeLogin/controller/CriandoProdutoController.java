@@ -2,19 +2,24 @@ package br.edu.ufersa.SistemaDeLogin.controller;
 
 import br.edu.ufersa.SistemaDeLogin.model.DAO.DAOFactory;
 import br.edu.ufersa.SistemaDeLogin.model.DAO.SqlDAOFactory;
+import br.edu.ufersa.SistemaDeLogin.model.entities.Funcionario;
 import br.edu.ufersa.SistemaDeLogin.model.entities.Produto;
 import br.edu.ufersa.SistemaDeLogin.model.entities.Tipo;
 import br.edu.ufersa.SistemaDeLogin.model.service.ProdutoService;
 import br.edu.ufersa.SistemaDeLogin.util.Navegacao;
+import br.edu.ufersa.SistemaDeLogin.util.Sessao;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.util.ArrayList;
 import java.util.List;
+import br.edu.ufersa.SistemaDeLogin.model.DAO.TipoDAO;
+import javafx.scene.paint.Color;
 
 public class CriandoProdutoController {
 
@@ -22,6 +27,8 @@ public class CriandoProdutoController {
     @FXML private TextField txtCodigoBarras;
     @FXML private TextField txtQuantidade;
     @FXML private TextField txtPreco;
+    @FXML private Label lblUsuarioNome;
+    @FXML private Label lblUsuarioCargo;
     @FXML private ComboBox<String> comboTipo;
 
     private final DAOFactory daoFactory = new SqlDAOFactory();
@@ -32,29 +39,17 @@ public class CriandoProdutoController {
 
     @FXML
     public void initialize() {
+        carregarPerfilUsuario();
         carregarTiposNoComboBox();
     }
 
     private void carregarTiposNoComboBox() {
         try {
-            // BUSCA DINÂMICA: Puxa todos os tipos reais cadastrados na tabela tb_tipo
-            // Se sua fábrica possuir criarTipoDAO(), use: daoFactory.criarTipoDAO().listarTodos()
-            // Caso use uma instância direta como 'new SqlTipoDAO().listarTodos()', ajuste aqui.
-            // Para garantir que o código compile, estou simulando o uso padrão da sua Factory:
-
-            // Exemplo genérico (ajuste conforme o método real da sua Fábrica para Tipos):
-            // listaTiposDoBanco = daoFactory.criarTipoDAO().listarTodos();
-
-            // Como medida de segurança (caso o banco esteja vazio), criamos uma lista temporária
-            // Mas o ideal é que você tenha registros na tabela `tb_tipo` do MySQL!
-
-            // TODO: Substitua a linha abaixo pela chamada real da sua DAO de tipos se necessário:
-            listaTiposDoBanco = daoFactory.criarProdutoDAO().listarTodos().stream()
-                    .map(Produto::getTipo).distinct().toList();
+            // BUSCA CORRETA: Puxa direto da fonte (Tabela de Tipos) usando o TipoDAO
+            listaTiposDoBanco = new TipoDAO().listarTodos();
 
             if (listaTiposDoBanco.isEmpty()) {
-                // Caso não tenha nenhum tipo cadastrado no banco ainda, colocamos provisórios com ID 1
-                // para o sistema não quebrar, mas lembre-se de cadastrar tipos na tb_tipo!
+                System.out.println("Nenhum tipo encontrado no banco. Adicionando provisórios...");
                 listaTiposDoBanco = new ArrayList<>();
                 listaTiposDoBanco.add(new Tipo(1, "Alimento", "Unidade"));
                 listaTiposDoBanco.add(new Tipo(2, "Bebida", "Unidade"));
@@ -68,9 +63,7 @@ public class CriandoProdutoController {
 
             comboTipo.setItems(FXCollections.observableArrayList(nomesTipos));
         } catch (Exception e) {
-            System.out.println("Aviso ao carregar tipos (usando fallback): " + e.getMessage());
-            // Fallback caso a tabela tb_tipo ainda não esteja mapeada na factory
-            comboTipo.setItems(FXCollections.observableArrayList("Alimento", "Bebida"));
+            System.out.println("Erro ao carregar tipos do banco: " + e.getMessage());
         }
     }
 
@@ -143,7 +136,7 @@ public class CriandoProdutoController {
 
     @FXML
     private void handleIrParaCompras(ActionEvent event) {
-        Navegacao.trocarTela("/Telas_fxml/TelaDeCompras.fxml", event);
+        Navegacao.trocarTela("/Telas_fxml/15. Tela de Compras.fxml", event);
     }
 
     @FXML
@@ -157,5 +150,24 @@ public class CriandoProdutoController {
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         alert.showAndWait();
+    }
+
+    private void carregarPerfilUsuario() {
+        Funcionario usuarioLogado = Sessao.getUsuarioLogado();
+
+        if (usuarioLogado != null) {
+            lblUsuarioNome.setText(usuarioLogado.getNome());
+            String cargo = usuarioLogado.getTipo();
+            lblUsuarioCargo.setText(cargo);
+
+            // Ajusta as cores do "badge" dependendo se é Gerente ou Funcionário
+            if (cargo != null && cargo.equalsIgnoreCase("Funcionário")) {
+                lblUsuarioCargo.setStyle("-fx-background-color: #E0F2FE; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;");
+                lblUsuarioCargo.setTextFill(Color.web("#0369A1"));
+            } else {
+                lblUsuarioCargo.setStyle("-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;");
+                lblUsuarioCargo.setTextFill(Color.web("#432dd7"));
+            }
+        }
     }
 }

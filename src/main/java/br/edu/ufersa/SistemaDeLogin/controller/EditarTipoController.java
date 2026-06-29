@@ -15,7 +15,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
-public class CriandoTipoController {
+public class EditarTipoController {
 
     @FXML private TextField txtNomeTipo;
     @FXML private MenuButton menuFormaVenda;
@@ -28,9 +28,18 @@ public class CriandoTipoController {
     }
 
     private final TipoService tipoService = new TipoService(new TipoDAO());
-    private String formaVendaSelecionada = ""; // Armazena a escolha do usuário
+    private Tipo tipoEmEdicao;
+    private String formaVendaSelecionada = "";
 
-    // Métodos para atualizar o texto do MenuButton ao selecionar a opção
+    // Método que será chamado pela tela de listagem de tipos para passar o objeto selecionado
+    public void preencherCampos(Tipo tipo) {
+        this.tipoEmEdicao = tipo;
+        this.formaVendaSelecionada = tipo.getFormaVenda();
+
+        txtNomeTipo.setText(tipo.getNome());
+        menuFormaVenda.setText(tipo.getFormaVenda());
+    }
+
     @FXML
     private void handleSelecaoUnidade(ActionEvent event) {
         formaVendaSelecionada = "Unidade";
@@ -50,7 +59,7 @@ public class CriandoTipoController {
     }
 
     @FXML
-    private void handleCadastrarTipo(ActionEvent event) {
+    private void handleAtualizarTipo(ActionEvent event) {
         String nomeTipo = txtNomeTipo.getText();
 
         if (nomeTipo == null || nomeTipo.trim().isEmpty()) {
@@ -58,35 +67,37 @@ public class CriandoTipoController {
             return;
         }
 
-        if (formaVendaSelecionada.isEmpty()) {
+        if (formaVendaSelecionada == null || formaVendaSelecionada.isEmpty()) {
             exibirAlerta("Campo Vazio", "Por favor, selecione uma forma de venda.", AlertType.WARNING);
             return;
         }
 
         try {
-            // Cria a entidade com os dados dinâmicos coletados da tela
-            Tipo novoTipo = new Tipo(nomeTipo.trim(), formaVendaSelecionada);
-            tipoService.cadastrar(novoTipo);
+            // Atualiza os dados do objeto existente
+            tipoEmEdicao.setNome(nomeTipo.trim());
+            tipoEmEdicao.setFormaVenda(formaVendaSelecionada);
 
-            exibirAlerta("Sucesso", "Categoria cadastrada com sucesso!", AlertType.INFORMATION);
+            // Se o seu TipoDAO usar o método "alterar", garanta que ele esteja implementado
+            new TipoDAO().alterar(tipoEmEdicao);
 
-            // Retorna para a listagem de tipos atualizada
+            exibirAlerta("Sucesso", "Categoria atualizada com sucesso!", AlertType.INFORMATION);
+
+            // Retorna para a tela de gerenciamento de tipos
             Navegacao.trocarTela("/Telas_fxml/8. Gerenciamento de Tipos.fxml", event);
-        } catch (IllegalArgumentException e) {
-            exibirAlerta("Erro de Cadastro", e.getMessage(), AlertType.ERROR);
+        } catch (Exception e) {
+            exibirAlerta("Erro de Alteração", "Erro ao salvar no banco: " + e.getMessage(), AlertType.ERROR);
         }
     }
 
     @FXML
     private void handleFechar(ActionEvent event) {
-        // Retorna para o gerenciamento de tipos
         Navegacao.trocarTela("/Telas_fxml/8. Gerenciamento de Tipos.fxml", event);
     }
 
     // Handlers de Navegação Global
     @FXML private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/4. Dashboard.fxml", event); }
     @FXML private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/5. Gerenciando Produtos.fxml", event); }
-    @FXML private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/TelaDeVendas.fxml", event); }
+    @FXML private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/11. Tela de Vendas.fxml", event); }
     @FXML private void handleIrParaCompras(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/15. Tela de Compras.fxml", event); }
     @FXML private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/1. Tela de Login 1.fxml", event); }
 
@@ -116,5 +127,4 @@ public class CriandoTipoController {
             }
         }
     }
-
 }

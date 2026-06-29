@@ -19,7 +19,9 @@ public class NotaService {
         }
 
         nota.calcularTotal();
-        notaDAO.salvar(nota);
+
+        // CORRIGIDO: Agora usamos registrarNota passando o tipo "VENDA"
+        notaDAO.registrarNota(nota, "VENDA");
     }
 
     // Mas também dá pra escolher como o cliente vai pagar
@@ -35,10 +37,9 @@ public class NotaService {
         double totalFinal = formaPagamento.calcularValorFinal(totalBruto);
 
         // 3. Atualiza o valor da nota com o cálculo da estratégia
-        // (Você pode precisar criar um setValorTotal(double) na classe Nota)
         nota.setValorTotal(totalFinal);
 
-        // 4. Salva no banco de dados usando a Factory que fizemos!
-        notaDAO.salvar(nota);
+        // 4. CORRIGIDO: Passando o tipo "VENDA"
+        notaDAO.registrarNota(nota, "VENDA");
     }
 }

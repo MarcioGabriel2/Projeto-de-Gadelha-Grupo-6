@@ -41,10 +41,12 @@ public class Produto {
 
     // setters
 
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) {
+        if (id >= 0) { this.id = id; }     // Impede que o ID seja negativo
+    }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        if (marca != null && !marca.isEmpty()) {this.marca = marca;}  // Garante que marca não seja vazia
     }
 
     public void setCodigoBarras(String codigoBarras) {
@@ -59,5 +61,9 @@ public class Produto {
         if (quantidadeEstoque >= 0) {
             this.quantidadeEstoque = quantidadeEstoque;
         }
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
 }

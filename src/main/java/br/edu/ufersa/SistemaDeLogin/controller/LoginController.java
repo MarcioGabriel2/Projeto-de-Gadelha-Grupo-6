@@ -4,9 +4,11 @@ import br.edu.ufersa.SistemaDeLogin.model.DAO.FuncionarioDAO;
 import br.edu.ufersa.SistemaDeLogin.model.entities.Funcionario;
 import br.edu.ufersa.SistemaDeLogin.model.service.FuncionarioService;
 import br.edu.ufersa.SistemaDeLogin.util.Navegacao;
+import br.edu.ufersa.SistemaDeLogin.util.Sessao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
@@ -33,6 +35,7 @@ public class LoginController {
             // Valida as credenciais comparando com os registros do banco de dados
             Funcionario funcionario = funcionarioService.login(email.trim(), senha);
             System.out.println("Login efetuado com sucesso para: " + funcionario.getNome());
+            Sessao.setUsuarioLogado(funcionario);
 
             // Redireciona para o Dashboard principal
             Navegacao.trocarTela("/Telas_fxml/4. Dashboard.fxml", event);

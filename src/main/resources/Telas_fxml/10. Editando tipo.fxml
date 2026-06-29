@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.CriandoTipoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.EditarTipoController">
    <children>
       <ImageView fitHeight="690.0" fitWidth="1025.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Imagens/9_Criando_novo_Tipo.png" />
+            <Image url="@../Imagens/10_Editando_Tipo.png" />
          </image>
       </ImageView>
 
@@ -42,7 +42,7 @@
       <ToggleButton layoutX="370.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaCompras" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuCompras" />
 
       <Button layoutX="724.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleFechar" opacity="0.0" prefHeight="16.0" prefWidth="16.0" style="-fx-cursor: hand;" text="X" />
-      <Button layoutX="644.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleCadastrarTipo" opacity="0.0" prefHeight="35.0" prefWidth="92.0" style="-fx-cursor: hand;" text="Cadastrar" />
+      <Button layoutX="644.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleAtualizarTipo" opacity="0.0" prefHeight="35.0" prefWidth="92.0" style="-fx-cursor: hand;" text="Atualizar" />
 
       <TextField fx:id="txtNomeTipo" layoutX="273.0" layoutY="345.0" prefHeight="36.0" prefWidth="462.0" promptText="Ex: Bebidas, Limpeza..." style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a; -fx-font-size: 14px;" />
 

@@ -48,18 +48,35 @@ public class SqlProdutoDAO implements ProdutoDAO {
     }
 
     @Override
-    public void alterar(Produto p) {
-        String sql = "UPDATE tb_produto SET marca = ?, codigoBarras = ?, preco = ?, quantidadeEstoque = ? WHERE id = ?";
-        try (Connection con = Conexao.getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
-            stmt.setString(1, p.getMarca());
-            stmt.setString(2, p.getCodigoBarras());
-            stmt.setDouble(3, p.getPreco());
-            stmt.setDouble(4, p.getQuantidadeEstoque());
-            stmt.setInt(5, p.getId());
-            stmt.executeUpdate();
+    public void alterar(Produto produto) {
+        // CORRIGIDO: id_tipo alterado para tipo_id para bater com o banco de dados!
+        String sql = "UPDATE tb_produto SET marca = ?, codigoBarras = ?, preco = ?, quantidadeEstoque = ?, tipo_id = ? WHERE id = ?";
+
+        try (Connection conn = Conexao.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, produto.getMarca());
+            ps.setString(2, produto.getCodigoBarras());
+            ps.setDouble(3, produto.getPreco());
+            ps.setDouble(4, produto.getQuantidadeEstoque());
+
+            if (produto.getTipo() != null) {
+                ps.setInt(5, produto.getTipo().getId());
+            } else {
+                ps.setNull(5, java.sql.Types.INTEGER);
+            }
+
+            ps.setInt(6, produto.getId());
+
+            int linhasAfetadas = ps.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Produto ID " + produto.getId() + " atualizado com sucesso no banco de dados!");
+            } else {
+                System.out.println("Aviso: Nenhum produto foi alterado no banco (ID não encontrado).");
+            }
+
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao atualizar dados do produto: " + e.getMessage());
+            throw new RuntimeException("Erro ao alterar produto no banco: " + e.getMessage(), e);
         }
     }
 

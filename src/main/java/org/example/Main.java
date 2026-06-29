@@ -20,7 +20,7 @@ public class Main extends Application {
 
             // OPÇÃO 2: Se quiser testar DIRETO a tela de compras que corrigimos,
             // comente a linha de cima (coloque //) e tire o comentário da linha de baixo:
-            // String fxmlPath = "/Telas_fxml/14. Tela de Compras.fxml";
+            // String fxmlPath = "/Telas_fxml/15. Tela de Compras.fxml";
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();

@@ -17,9 +17,21 @@ public class Tipo {
     public void alterarFormaVenda(String f) {
         if (f != null && !f.isEmpty()) this.formaVenda = f;
     }
-// Getters e Setters necessários
+
+    // Getters
+
     public int getId() { return id; }
     public String getFormaVenda() { return this.formaVenda; }
-    public void setId(int id) { this.id = id; }
     public String getNome() { return nome; }
+
+    // Setters
+    public void setId(int id) { this.id = id; }
+
+    public void setNome(String nome) {
+        if (nome != null && !nome.isEmpty()) { this.nome = nome; }
+    }
+
+    public void setFormaVenda(String formaVenda) {
+        this.formaVenda = formaVenda;
+    }
 }

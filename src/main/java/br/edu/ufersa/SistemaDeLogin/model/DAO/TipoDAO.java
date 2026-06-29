@@ -11,7 +11,7 @@ import java.util.List;
 public class TipoDAO {
 
     public void salvar(Tipo t) {
-        String sql = "INSERT INTO tb_tipo (nome, forma_venda) VALUES (?, ?)";
+        String sql = "INSERT INTO tb_tipo (nome, formaVenda) VALUES (?, ?)";
 
         try (Connection con = Conexao.getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -25,7 +25,6 @@ public class TipoDAO {
         }
     }
 
-    //
     public List<Tipo> listarTodos() {
         List<Tipo> tipos = new ArrayList<>();
         String sql = "SELECT * FROM tb_tipo";
@@ -38,7 +37,7 @@ public class TipoDAO {
                 Tipo t = new Tipo(
                         rs.getInt("id"),
                         rs.getString("nome"),
-                        rs.getString("forma_venda")
+                        rs.getString("formaVenda")
                 );
                 tipos.add(t);
             }
@@ -46,5 +45,41 @@ public class TipoDAO {
             throw new RuntimeException("Erro ao listar tipos: " + e.getMessage());
         }
         return tipos;
+    }
+
+    public void alterar(Tipo t) {
+        String sql = "UPDATE tb_tipo SET nome = ?, formaVenda = ? WHERE id = ?";
+
+        try (Connection con = Conexao.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, t.getNome());
+            stmt.setString(2, t.getFormaVenda());
+            stmt.setInt(3, t.getId());
+
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("Tipo ID " + t.getId() + " atualizado com sucesso no banco!");
+            } else {
+                System.out.println("Aviso: Nenhum tipo foi alterado (ID não encontrado).");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao alterar tipo no banco: " + e.getMessage(), e);
+        }
+    }
+
+    public void deletar(int id) {
+        String sql = "DELETE FROM tb_tipo WHERE id = ?";
+
+        try (Connection con = Conexao.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao deletar tipo: " + e.getMessage());
+        }
     }
 }

@@ -22,7 +22,6 @@ package br.edu.ufersa.SistemaDeLogin.model.entities;
     public double getValorUnitario() { return valorUnitario; }
 
     // setters
-
         public void setQuantidade(int quantidade) {
             if (quantidade >= 0) {
                 this.quantidade = quantidade;

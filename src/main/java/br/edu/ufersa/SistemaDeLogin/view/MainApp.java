@@ -16,17 +16,15 @@ public class MainApp extends Application {
 
             String fxmlPath = "/Telas_fxml/1. Tela de Login 1.fxml";
 
-
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
-           
             Scene scene = new Scene(root);
 
             primaryStage.setTitle("Sistema de Supermercado - UFERSA");
             primaryStage.setScene(scene);
-            primaryStage.setResizable(false); // Impede de redimensionar e quebrar o layout do Figma
+            primaryStage.setResizable(true);
+            primaryStage.setMaximized(true);
             primaryStage.show();
 
             System.out.println("Aplicação inicializada com sucesso usando a tela: " + fxmlPath);

@@ -18,27 +18,26 @@ public class Funcionario {
         this.senha = senha;
     }
 
+    public boolean funcionario(String nome, String senha) {
+        return this.nome.equals(nome) && this.senha.equals(senha);
+    }
+
+    // getters
+
     public String getTipo() {
         return tipo;
     }
-
     public String getNome() {
         return nome;
     }
-
     public String getSenha() {
         return senha;
     }
-
-
-    public boolean funcionario(String nome, String senha) {
-    return this.nome.equals(nome) && this.senha.equals(senha);
-}
-
-
     public int getId() {
         return id;
     }
+
+    // setters
 
     public void setId(int id) {
         if (id >= 0) {
@@ -47,7 +46,9 @@ public class Funcionario {
             throw new IllegalArgumentException("ID inválido: O ID não pode ser negativo.");
         }
         // ID não pode ser negativo
+
     }
+
 
 
 }
