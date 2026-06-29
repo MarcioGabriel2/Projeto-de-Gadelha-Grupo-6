@@ -5,30 +5,46 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView fitHeight="690.0" fitWidth="1025.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/Editando_produto_2.png" />
-         </image>
-      </ImageView>
-      <TextField layoutX="271.0" layoutY="209.0" opacity="0.0" prefHeight="25.0" prefWidth="426.0" text="Marca" />
-      <TextField layoutX="281.0" layoutY="279.0" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Código de Barras" />
-      <MenuButton layoutX="281.0" layoutY="427.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Selecione um tipo">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <Button layoutX="656.0" layoutY="552.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="87.0" text="Atualizar" />
-      <Button layoutX="732.0" layoutY="195.0" mnemonicParsing="false" opacity="0.0" prefHeight="16.0" prefWidth="16.0" text="X" />
-      <TextField layoutX="281.0" layoutY="352.0" opacity="0.0" prefHeight="36.0" prefWidth="462.0" text="Código de Barras" />
-      <TextField layoutX="282.0" layoutY="498.0" opacity="0.0" prefHeight="36.0" prefWidth="222.0" text="Quantidade" />
-      <TextField layoutX="521.0" layoutY="498.0" opacity="0.0" prefHeight="36.0" prefWidth="222.0" text="Preço (R$)" />
-      <ToggleButton layoutX="380.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />
-      <ToggleButton layoutX="276.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuVendas" textFill="TRANSPARENT" />
-      <ToggleButton layoutX="160.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" text="menuProdutos" textFill="TRANSPARENT" />
-      <ToggleButton layoutX="34.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="118.0" text="menuDashboard" textFill="TRANSPARENT" />
-      <Button layoutX="922.0" layoutY="20.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
-   </children>
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.EditarProdutoController">
+      <Pane layoutX="235.0" layoutY="100.0" prefHeight="500.0" prefWidth="540.0" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);">
+         <children>
+
+            <Label layoutX="30.0" layoutY="25.0" style="-fx-font-weight: bold;" text="Editar Produto">
+               <font><Font size="20.0" /></font>
+            </Label>
+            <Button layoutX="490.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleFechar" style="-fx-background-color: transparent; -fx-cursor: hand;" text="✕" textFill="#6b7280">
+               <font><Font size="16.0" /></font>
+            </Button>
+
+            <Label layoutX="30.0" layoutY="80.0" text="Marca" textFill="#374151">
+               <font><Font size="14.0" /></font>
+            </Label>
+            <TextField fx:id="txtMarca" layoutX="30.0" layoutY="105.0" prefHeight="38.0" prefWidth="480.0" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6; -fx-border-color: #e5e7eb; -fx-border-radius: 6;" />
+
+            <Label layoutX="30.0" layoutY="160.0" text="Código de Barras" textFill="#374151">
+               <font><Font size="14.0" /></font>
+            </Label>
+            <TextField fx:id="txtCodigo" layoutX="30.0" layoutY="185.0" prefHeight="38.0" prefWidth="480.0" style="-fx-background-color: #f9fafb; -fx-background-radius: 6; -fx-border-color: #e5e7eb; -fx-border-radius: 6;" editable="false" />
+
+            <Label layoutX="30.0" layoutY="240.0" text="Tipo" textFill="#374151">
+               <font><Font size="14.0" /></font>
+            </Label>
+            <ComboBox fx:id="cbTipo" layoutX="30.0" layoutY="265.0" prefHeight="38.0" prefWidth="480.0" promptText="Selecione um tipo" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6; -fx-border-color: #e5e7eb; -fx-border-radius: 6;" />
+
+            <Label layoutX="30.0" layoutY="320.0" text="Quantidade" textFill="#374151">
+               <font><Font size="14.0" /></font>
+            </Label>
+            <TextField fx:id="txtQuantidade" layoutX="30.0" layoutY="345.0" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6; -fx-border-color: #e5e7eb; -fx-border-radius: 6;" />
+
+            <Label layoutX="280.0" layoutY="320.0" text="Preço (R$)" textFill="#374151">
+               <font><Font size="14.0" /></font>
+            </Label>
+            <TextField fx:id="txtPreco" layoutX="280.0" layoutY="345.0" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6; -fx-border-color: #e5e7eb; -fx-border-radius: 6;" />
+
+            <Button layoutX="370.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleAtualizar" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #000000; -fx-background-radius: 8; -fx-cursor: hand;" text="Atualizar" textFill="WHITE">
+               <font><Font name="System Bold" size="14.0" /></font>
+            </Button>
+         </children>
+      </Pane>
 </AnchorPane>

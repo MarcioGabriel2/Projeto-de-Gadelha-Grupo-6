@@ -1,52 +1,72 @@
 package br.edu.ufersa.SistemaDeLogin.controller;
 
-import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 
 public class ComprasController {
-
-    // --- Navegação do Menu Superior ---
     @FXML
-    private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event); }
+    private TextField txtBuscaProduto;
 
     @FXML
-    private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos 1 Final.fxml", event); }
+    private TextField txtQuantidade;
 
     @FXML
-    private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Tela de Vendas.fxml", event); }
+    private TextField txtPrecoCusto;
 
     @FXML
-    private void handleIrParaCompras(ActionEvent event) {
-        // Já está na secção de Compras
+    private TableView<?> tabelaItens;
+
+    @FXML
+    public void initialize() {
+        // Futuramente: Lógica para carregar os dados nas colunas da tabela
     }
 
     @FXML
-    private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event); }
-
-    // --- Ações da Tela de Compras ---
-    @FXML
-    private void handleAdicionarCompra() {
-        System.out.println("Produto adicionado à compra atual!");
+    public void handleIrParaDashboard(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event);
     }
 
     @FXML
-    private void handleFinalizarCompra() {
-        System.out.println("Compra finalizada com sucesso!");
+    public void handleIrParaProdutos(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos 1 Final.fxml", event);
     }
 
     @FXML
-    private void handleCancelarNota() {
-        System.out.println("Nota cancelada e limpa.");
-    }
-
-    // Ações extra para a Tela de Compras 2
-    @FXML
-    private void handleEditarItem() {
-        System.out.println("Editando o item selecionado na tabela de compras...");
+    public void handleIrParaVendas(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Tela de Vendas.fxml", event);
     }
 
     @FXML
-    private void handleExcluirItem() {
-        System.out.println("Item removido da nota de compra atual.");
+    public void handleIrParaHistorico(ActionEvent event) {
+        // Navega para a aba de Histórico
+        Navegacao.trocarTela("/Telas_fxml/Tela de Compras 2.fxml", event);
+    }
+
+    @FXML
+    public void handleSair(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event);
+    }
+
+    @FXML
+    public void handleAdicionarItem(ActionEvent event) {
+        System.out.println("Adicionando produto à compra: " + txtBuscaProduto.getText());
+        // Lógica para listar o produto na tabela
+    }
+
+    @FXML
+    public void handleCancelarCompra(ActionEvent event) {
+        System.out.println("Compra cancelada. Limpando os campos...");
+        txtBuscaProduto.clear();
+        txtQuantidade.clear();
+        txtPrecoCusto.clear();
+        // Lógica para limpar a TableView
+    }
+
+    @FXML
+    public void handleFinalizarCompra(ActionEvent event) {
+        System.out.println("Compra finalizada e estoque atualizado com sucesso!");
+        // Lógica para salvar a entrada no Banco de Dados
     }
 }

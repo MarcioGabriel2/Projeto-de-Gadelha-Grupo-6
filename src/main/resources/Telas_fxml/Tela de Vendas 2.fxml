@@ -5,22 +5,81 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.Font?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.VendasHistoricoController">
    <children>
-      <ImageView fitHeight="955.0" fitWidth="1010.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagens/Vendas_2.png" />
-         </image>
-      </ImageView>
-      <TextField layoutX="271.0" layoutY="209.0" opacity="0.0" prefHeight="25.0" prefWidth="426.0" text="Marca" />
-      <ToggleButton layoutX="373.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />
-      <ToggleButton layoutX="267.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="96.0" text="menuVendas" textFill="TRANSPARENT" />
-      <ToggleButton layoutX="151.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" text="menuProdutos" textFill="TRANSPARENT" />
-      <ToggleButton layoutX="25.0" layoutY="77.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="118.0" text="menuDashboard" textFill="TRANSPARENT" />
-      <Button layoutX="894.0" layoutY="20.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
-      <TextField layoutX="55.0" layoutY="321.0" opacity="0.0" prefHeight="36.0" prefWidth="565.0" text="Digite co´digo de barras ou nome do produto..." />
-      <Button layoutX="344.0" layoutY="511.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="277.0" text="+ Adicionar à Nota" textFill="TRANSPARENT" />
-      <Button layoutX="689.0" layoutY="299.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="249.34" text="Finalizar Venda" textFill="TRANSPARENT" />
-      <Button layoutX="690.0" layoutY="341.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="249.34" text="Cancelar Nota" textFill="TRANSPARENT" />
+      <Pane prefHeight="70.0" prefWidth="1010.0" style="-fx-background-color: #ffffff; -fx-border-color: #e5e7eb; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Label alignment="CENTER" layoutX="30.0" layoutY="15.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #6366f1; -fx-background-radius: 8;" text="🛒" textFill="WHITE">
+               <font><Font size="20.0" /></font>
+            </Label>
+            <Label layoutX="85.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Mercadinho do Sr. Pedrinho">
+               <font><Font size="16.0" /></font>
+            </Label>
+            <Label layoutX="85.0" layoutY="38.0" text="Bairro Abolição 7" textFill="#6b7280">
+               <font><Font size="12.0" /></font>
+            </Label>
+            <Label layoutX="750.0" layoutY="25.0" text="👤 Sr. Pedrinho">
+               <font><Font size="14.0" /></font>
+            </Label>
+            <Label alignment="CENTER" layoutX="855.0" layoutY="24.0" prefHeight="22.0" prefWidth="60.0" style="-fx-background-color: #e0e7ff; -fx-background-radius: 4;" text="Gerente" textFill="#4338ca">
+               <font><Font size="11.0" /></font>
+            </Label>
+            <Button layoutX="930.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleSair" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 6; -fx-cursor: hand;" text="Sair" />
+         </children>
+      </Pane>
+
+      <Pane layoutY="70.0" prefHeight="50.0" prefWidth="1010.0" style="-fx-background-color: #ffffff; -fx-border-color: #e5e7eb; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Button layoutX="30.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaDashboard" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📊 Dashboard">
+               <font><Font name="System Bold" size="13.0" /></font>
+            </Button>
+            <Button layoutX="140.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📦 Produtos">
+               <font><Font name="System Bold" size="13.0" /></font>
+            </Button>
+            <Button layoutX="240.0" layoutY="8.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #0f172a; -fx-background-radius: 6; -fx-cursor: hand;" text="🛍️ Vendas" textFill="WHITE">
+               <font><Font name="System Bold" size="13.0" /></font>
+            </Button>
+            <Button layoutX="350.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="📈 Compras">
+               <font><Font name="System Bold" size="13.0" /></font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Label layoutX="30.0" layoutY="150.0" style="-fx-font-weight: bold;" text="Caixa e Vendas">
+         <font><Font size="26.0" /></font>
+      </Label>
+      <Label layoutX="30.0" layoutY="185.0" text="Registre as vendas e emita notas fiscais" textFill="#6b7280">
+         <font><Font size="16.0" /></font>
+      </Label>
+
+      <Pane layoutX="30.0" layoutY="235.0" prefHeight="40.0" prefWidth="950.0" style="-fx-background-color: #e5e7eb; -fx-background-radius: 20;">
+         <children>
+            <Button layoutX="5.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleIrParaNovaVenda" prefHeight="32.0" prefWidth="470.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="🛒 Nova Venda" textFill="#4b5563">
+               <font><Font name="System Bold" size="13.0" /></font>
+            </Button>
+            <Button layoutX="475.0" layoutY="4.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="470.0" style="-fx-background-color: #ffffff; -fx-background-radius: 16; -fx-cursor: hand;" text="📜 Histórico de Vendas">
+               <font><Font name="System Bold" size="13.0" /></font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Pane layoutX="30.0" layoutY="300.0" prefHeight="390.0" prefWidth="950.0" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-border-color: #e5e7eb; -fx-border-radius: 12;">
+         <children>
+            <Label layoutX="25.0" layoutY="20.0" style="-fx-font-weight: bold;" text="Lista de Notas Fiscais">
+               <font><Font size="16.0" /></font>
+            </Label>
+
+            <TableView fx:id="tabelaHistorico" layoutX="20.0" layoutY="65.0" prefHeight="300.0" prefWidth="910.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+               <columns>
+                  <TableColumn prefWidth="150.0" text="Nº da Nota" />
+                  <TableColumn prefWidth="250.0" text="Data e Hora" />
+                  <TableColumn prefWidth="180.0" text="Valor Total" />
+                  <TableColumn prefWidth="180.0" text="Status" />
+                  <TableColumn prefWidth="150.0" text="Ações" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

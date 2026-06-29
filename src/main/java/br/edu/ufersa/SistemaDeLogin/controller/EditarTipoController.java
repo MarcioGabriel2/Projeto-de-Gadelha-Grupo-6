@@ -6,7 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class TipoModalController {
+public class EditarTipoController {
     @FXML
     private TextField txtNomeTipo;
 
@@ -23,8 +23,8 @@ public class TipoModalController {
     }
 
     @FXML
-    public void handleCadastrar(ActionEvent event) {
-        System.out.println("Tipo criado com sucesso!");
+    public void handleAtualizar(ActionEvent event) {
+        System.out.println("Tipo atualizado com sucesso!");
         Stage stage = (Stage) txtNomeTipo.getScene().getWindow();
         stage.close();
     }

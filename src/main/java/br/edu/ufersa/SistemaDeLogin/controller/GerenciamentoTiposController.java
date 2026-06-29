@@ -1,33 +1,49 @@
 package br.edu.ufersa.SistemaDeLogin.controller;
 
-import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class GerenciamentoTiposController {
+    @FXML
+    public void initialize() { }
 
     @FXML
-    private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event); }
-
-    @FXML
-    private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos 1 Final.fxml", event); }
-
-    @FXML
-    private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/TelaDeVendas.fxml", event); }
-
-    @FXML
-    private void handleIrParaCompras(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Tela de Compras.fxml", event); }
-
-    @FXML
-    private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/Tela de Login 1 Final.fxml", event); }
-
-    @FXML
-    private void handleNovoTipo(ActionEvent event) {
-        Navegacao.trocarTela("/Telas_fxml/Criando novo Tipo.fxml", event);
+    public void handleIrParaDashboard(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Dashboard Final.fxml", event);
     }
 
     @FXML
-    private void handleEditarTipo() { System.out.println("Abrindo modal para editar Tipo..."); }
+    public void handleIrParaProdutos(ActionEvent event) {
+        Navegacao.trocarTela("/Telas_fxml/Gerenciando Produtos 1 Final.fxml", event);
+    }
 
     @FXML
-    private void handleApagarTipo() { System.out.println("Tipo apagado da base de dados!"); }
+    public void handleNovoTipo(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Telas_fxml/Criando novo Tipo.fxml"));
+            Parent root = loader.load();
+
+            Stage modalStage = new Stage();
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+            modalStage.setScene(scene);
+
+            Stage parentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            modalStage.initOwner(parentStage);
+            modalStage.initModality(Modality.APPLICATION_MODAL);
+            modalStage.initStyle(StageStyle.TRANSPARENT);
+
+            modalStage.showAndWait();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
