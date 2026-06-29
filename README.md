@@ -1,4 +1,4 @@
-Olá, esse foi um projeto da disciplina de Prograação Orientada a Objetos feita por três alunos, o foco era criar um sistema de supermercados.
+Olá, esse foi um projeto da disciplina de Programação Orientada a Objetos feita por três alunos, o foco era criar um sistema de supermercados.
 
 Lista de Autores (Alunos):
 - Marcio Gabriel Silva de Moura
