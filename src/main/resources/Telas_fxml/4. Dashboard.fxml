@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.DashboardController">
+   <children>
+      <ImageView fitHeight="728.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/4_Dashboard.png" />
+         </image>
+      </ImageView>
+
+      <Label fx:id="lblTotalProdutos" layoutX="56.0" layoutY="317.0" prefHeight="35.0" prefWidth="180.0" text="0" textFill="#1a1a1a">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubProdutos" layoutX="57.0" layoutY="361.0" prefHeight="20.0" prefWidth="180.0" text="0 unidades em estoque" textFill="#6a7282" />
+
+      <Label fx:id="lblTotalVendas" layoutX="296.0" layoutY="317.0" prefHeight="35.0" prefWidth="180.0" text="R$ 0.00" textFill="#1a1a1a">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubVendas" layoutX="297.0" layoutY="361.0" prefHeight="20.0" prefWidth="180.0" text="Hoje: R$ 0.00" textFill="#6a7282" />
+
+      <Label fx:id="lblTotalCompras" layoutX="537.0" layoutY="317.0" prefHeight="35.0" prefWidth="180.0" text="R$ 0.00" textFill="#1a1a1a">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubCompras" layoutX="538.0" layoutY="361.0" prefHeight="20.0" prefWidth="180.0" text="Hoje: R$ 0.00" textFill="#6a7282" />
+
+      <Label fx:id="lblSaldo" layoutX="775.0" layoutY="317.0" prefHeight="35.0" prefWidth="180.0" text="R$ 0.00" textFill="#1a1a1a">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubSaldo" layoutX="776.0" layoutY="361.0" prefHeight="20.0" prefWidth="180.0" text="Vendas - Compras" textFill="#6a7282" />
+
+      <HBox alignment="CENTER" layoutX="720.0" layoutY="21.0" spacing="10.0" AnchorPane.rightAnchor="109.0">
+         <children>
+            <ImageView fx:id="imgUsuarioIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/icon_pessoa.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblUsuarioNome" text="Carregando...">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsuarioCargo" alignment="CENTER" prefHeight="22.0" style="-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;" text="Cargo" textFill="#432dd7">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button layoutX="910.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleSair" prefHeight="30.0" prefWidth="74.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+
+      <ToggleButton layoutX="32.0" layoutY="74.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+      <ToggleButton layoutX="158.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+      <ToggleButton layoutX="274.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaVendas" prefHeight="30.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+      <ToggleButton layoutX="378.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaCompras" prefHeight="30.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+
+      <ToggleButton layoutX="33.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" prefHeight="169.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+      <ToggleButton layoutX="274.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleIrParaVendas" prefHeight="169.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+      <ToggleButton layoutX="515.0" layoutY="233.0" mnemonicParsing="false" onAction="#handleIrParaCompras" prefHeight="169.0" prefWidth="222.0" style="-fx-background-color: transparent; -fx-cursor: hand;" />
+   </children>
+</AnchorPane>

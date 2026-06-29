@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="956.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="956.0" fitWidth="1010.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/Vendas_4.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="271.0" layoutY="209.0" opacity="0.0" prefHeight="25.0" prefWidth="426.0" text="Marca" />
+      <ToggleButton layoutX="387.0" layoutY="76.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="104.0" text="menuCompras" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="282.0" layoutY="76.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="96.0" text="menuVendas" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="163.0" layoutY="76.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" text="menuProdutos" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="38.0" layoutY="76.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="118.0" text="menuDashboard" textFill="TRANSPARENT" />
+      <Button layoutX="909.0" layoutY="20.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="74.0" text="Sair" textFill="TRANSPARENT" />
+      <TextField layoutX="56.0" layoutY="325.0" opacity="0.0" prefHeight="36.0" prefWidth="572.66" />
+      <Button layoutX="361.0" layoutY="399.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="277.0" text="+ Adicionar à Nota" />
+      <Button layoutX="712.0" layoutY="405.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="250.0" text="Finalizar Venda" />
+      <Button layoutX="713.0" layoutY="451.0" mnemonicParsing="false" opacity="0.0" prefHeight="36.0" prefWidth="250.0" text="Cancelar Nota" />
+      <Button layoutX="732.0" layoutY="859.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="38.0" text="Ver (olho)" />
+   </children>
+</AnchorPane>

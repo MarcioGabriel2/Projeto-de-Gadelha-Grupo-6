@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.VendasController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1010.0">
+         <children>
+            <ImageView fx:id="imgFundo" fitHeight="955.0" fitWidth="1010.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/11_Vendas_1.png" />
+               </image>
+            </ImageView>
+      
+            <HBox alignment="CENTER" layoutX="720.0" layoutY="23.0" spacing="10.0" AnchorPane.rightAnchor="109.0">
+               <children>
+                  <ImageView fx:id="imgUsuarioIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/icon_pessoa.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblUsuarioNome" text="Carregando...">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblUsuarioCargo" alignment="CENTER" prefHeight="22.0" style="-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;" text="Cargo" textFill="#432dd7">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+      
+            <Button layoutX="909.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleSair" opacity="0.0" prefHeight="30.0" prefWidth="74.0" style="-fx-cursor: hand;" text="Sair" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="33.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaDashboard" opacity="0.0" prefHeight="30.0" prefWidth="118.0" style="-fx-cursor: hand;" text="menuDashboard" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="159.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" opacity="0.0" prefHeight="30.0" prefWidth="110.0" style="-fx-cursor: hand;" text="menuProdutos" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="275.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaVendas" opacity="0.0" prefHeight="30.0" prefWidth="96.0" style="-fx-cursor: hand;" text="menuVendas" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="381.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleIrParaCompras" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuCompras" textFill="TRANSPARENT" />
+      
+            <TextField fx:id="txtPesquisarProduto" layoutX="56.0" layoutY="325.0" opacity="1.0" prefHeight="36.0" prefWidth="572.0" promptText="Digite o código de barras ou nome..." style="-fx-background-color: transparent; -fx-border-color: #d1d5db; -fx-border-radius: 5px; -fx-padding: 0 10 0 10; -fx-font-size: 14px;" />
+      
+            <TextField fx:id="txtQuantidade" layoutX="56.0" layoutY="399.0" prefHeight="36.0" prefWidth="277.0" promptText="Quantidade" style="-fx-background-color: transparent; -fx-border-color: #d1d5db; -fx-border-radius: 5px; -fx-font-size: 14px;" text="0" />
+      
+            <Button layoutX="352.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleAdicionarNota" opacity="0.0" prefHeight="36.0" prefWidth="277.0" style="-fx-cursor: hand;" text="+ Adicionar à Nota" />
+      
+            <TableView fx:id="tabelaItensNota" layoutX="40.0" layoutY="548.0" prefHeight="142.0" prefWidth="590.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 8px;">
+               <columns>
+                  <TableColumn fx:id="colProdutoNota" prefWidth="200.0" text="Produto" />
+                  <TableColumn fx:id="colTipoNota" prefWidth="100.0" text="Tipo" />
+                  <TableColumn fx:id="colQtdNota" prefWidth="70.0" text="Qtd" />
+                  <TableColumn fx:id="colPrecoNota" prefWidth="100.0" text="Preço Unit." />
+                  <TableColumn fx:id="colSubtotalNota" prefWidth="118.0" text="Subtotal" />
+               </columns>
+            </TableView>
+      
+            <TableView fx:id="tabelaHistorico" layoutX="56.0" layoutY="813.0" prefHeight="111.0" prefWidth="898.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 8px;">
+               <columns>
+                  <TableColumn fx:id="colDataHistorico" prefWidth="200.0" text="Data" />
+                  <TableColumn fx:id="colTotalHistorico" prefWidth="511.0" text="Total" />
+                  <TableColumn fx:id="colAcoesHistorico" prefWidth="185.0" text="Ações" />
+               </columns>
+            </TableView>
+      
+            <Label layoutX="703.0" layoutY="300.0" textFill="#4b5563">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblQtdItens" alignment="CENTER_RIGHT" layoutX="883.0" layoutY="304.0" prefWidth="70.0" text="0" textFill="#111827">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+      
+            <Label layoutX="703.0" layoutY="330.0" textFill="#4b5563">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblQtdTotal" alignment="CENTER_RIGHT" layoutX="883.0" layoutY="331.0" prefWidth="70.0" text="0" textFill="#111827">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+      
+            <Label layoutX="703.0" layoutY="380.0" textFill="#111827">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblValorTotal" alignment="CENTER_RIGHT" layoutX="780.0" layoutY="374.0" prefHeight="35.0" prefWidth="175.0" text="R$ 0.00" textFill="#00a63e">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+      
+            <ComboBox fx:id="cbFormaPagamento" layoutX="703.0" layoutY="403.0" prefHeight="30.0" prefWidth="250.0" promptText="Forma de Pagamento" style="-fx-background-color: white; -fx-border-color: #d1d5db; -fx-border-radius: 5px;" />
+            <Button fx:id="btnFinalizarVenda" layoutX="703.0" layoutY="437.0" mnemonicParsing="false" onAction="#handleFinalizarVenda" opacity="0.0" prefHeight="36.0" prefWidth="250.0" style="-fx-cursor: hand;" text="Finalizar Venda" />
+            <Button layoutX="704.0" layoutY="483.0" mnemonicParsing="false" onAction="#handleCancelarNota" opacity="0.0" prefHeight="36.0" prefWidth="250.0" style="-fx-cursor: hand;" text="Cancelar Nota" />
+            <Button layoutX="428.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleRemoverItemSelecionado" prefHeight="30.0" prefWidth="200.0" style="-fx-cursor: hand; -fx-background-color: #fee2e2; -fx-text-fill: #b91c1c; -fx-border-color: #f87171; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remover Produto Selecionado" />
+      
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

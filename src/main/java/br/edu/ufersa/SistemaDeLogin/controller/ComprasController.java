@@ -1,0 +1,320 @@
+package br.edu.ufersa.SistemaDeLogin.controller;
+
+import br.edu.ufersa.SistemaDeLogin.model.DAO.*;
+import br.edu.ufersa.SistemaDeLogin.model.entities.Funcionario;
+import br.edu.ufersa.SistemaDeLogin.model.entities.ItemNota;
+import br.edu.ufersa.SistemaDeLogin.model.entities.Nota;
+import br.edu.ufersa.SistemaDeLogin.model.entities.Produto;
+import br.edu.ufersa.SistemaDeLogin.model.service.NotaService;
+import br.edu.ufersa.SistemaDeLogin.util.Navegacao;
+import br.edu.ufersa.SistemaDeLogin.util.Sessao;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.paint.Color;
+
+import java.util.List;
+
+public class ComprasController {
+
+    @FXML private Label lblUsuarioNome;
+    @FXML private Label lblUsuarioCargo;
+
+    @FXML private ComboBox<String> cbProduto;
+    @FXML private TextField txtQuantidade;
+    @FXML private TextField txtPrecoUnitario;
+
+    @FXML private TableView<ItemNota> tabelaItensCompra;
+    @FXML private TableColumn<ItemNota, String> colProdutoCompra;
+    @FXML private TableColumn<ItemNota, Double> colQtdCompra;
+    @FXML private TableColumn<ItemNota, String> colPrecoCompra;
+    @FXML private TableColumn<ItemNota, String> colSubtotalCompra;
+
+    @FXML private Label lblQtdItens;
+    @FXML private Label lblQtdTotal;
+    @FXML private Label lblValorTotal;
+
+    @FXML private TableView<Nota> tabelaHistoricoCompra;
+    @FXML private TableColumn<Nota, String> colDataHistoricoCompra;
+    @FXML private TableColumn<Nota, String> colTotalHistoricoCompra;
+    @FXML private TableColumn<Nota, Void> colAcoesHistoricoCompra;
+
+    private ObservableList<Nota> obsHistoricoCompra = FXCollections.observableArrayList();
+    private final NotaService notaService = new NotaService(new NotaDAO());
+    private List<Produto> listaProdutosBanco;
+
+    private final DAOFactory daoFactory = new SqlDAOFactory();
+    private final ProdutoDAO produtoDAO = daoFactory.criarProdutoDAO();
+    private final NotaDAO notaDAO = daoFactory.criarNotaDAO();
+
+    private Nota notaCompra = new Nota();
+    private ObservableList<ItemNota> obsItensCompra = FXCollections.observableArrayList();
+
+    @FXML
+    public void initialize() {
+        carregarPerfilUsuario();
+        configurarTabelaEInputs();
+        carregarProdutosNoComboBox();
+
+        configurarTabelaHistorico();
+        atualizarHistorico();
+    }
+
+    private void carregarProdutosNoComboBox() {
+        try {
+            listaProdutosBanco = produtoDAO.listarTodos();
+            for (Produto p : listaProdutosBanco) {
+                cbProduto.getItems().add(p.getMarca());
+            }
+
+            cbProduto.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+                if (newVal != null) {
+                    for (Produto p : listaProdutosBanco) {
+                        if (p.getMarca().equals(newVal)) {
+                            txtPrecoUnitario.setText(String.valueOf(p.getPreco()));
+                            break;
+                        }
+                    }
+                }
+            });
+        } catch (Exception e) {
+            exibirAlerta(AlertType.ERROR, "Erro", "Não foi possível carregar os produtos do banco.");
+        }
+    }
+
+    private void configurarTabelaEInputs() {
+        // bloqueia digitação de letras na quantidade
+        txtQuantidade.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal.matches("\\d*")) { txtQuantidade.setText(newVal.replaceAll("[^\\d]", "")); }
+        });
+
+        // configura as colunas da tabela
+        colProdutoCompra.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProduto().getMarca()));
+        colQtdCompra.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getQuantidade()));
+        colPrecoCompra.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("R$ %.2f", cellData.getValue().getValorUnitario())));
+        colSubtotalCompra.setCellValueFactory(cellData -> new SimpleStringProperty(String.format("R$ %.2f", cellData.getValue().calcularSubtotal())));
+
+        tabelaItensCompra.setItems(obsItensCompra);
+    }
+
+    @FXML
+    private void handleAdicionarCompra() {
+        String marcaSelecionada = cbProduto.getValue();
+        String qtdTexto = txtQuantidade.getText();
+        String precoTexto = txtPrecoUnitario.getText().replace(",", "."); // Aceita vírgula ou ponto
+
+        if (marcaSelecionada == null || qtdTexto.isEmpty() || precoTexto.isEmpty()) {
+            exibirAlerta(AlertType.WARNING, "Campos Incompletos", "Selecione um produto, digite a quantidade e o custo unitário.");
+            return;
+        }
+
+        try {
+            double qtd = Double.parseDouble(qtdTexto);
+            double precoUnitario = Double.parseDouble(precoTexto);
+
+            if (qtd <= 0 || precoUnitario < 0) {
+                exibirAlerta(AlertType.WARNING, "Valores Inválidos", "A quantidade deve ser maior que zero e o preço não pode ser negativo.");
+                return;
+            }
+
+            // acha o produto completo na lista que já puxamos do banco
+            Produto produtoSelecionado = null;
+            for (Produto p : listaProdutosBanco) {
+                if (p.getMarca().equals(marcaSelecionada)) {
+                    produtoSelecionado = p;
+                    break;
+                }
+            }
+
+            // junta grupos repetidos
+            boolean jaExiste = false;
+            for (ItemNota item : notaCompra.getItens()) {
+                if (item.getProduto().getId() == produtoSelecionado.getId()) {
+                    item.setQuantidade(item.getQuantidade() + qtd);
+                    item.setValorUnitario(precoUnitario); // Atualiza pelo custo mais recente digitado
+                    jaExiste = true;
+                    break;
+                }
+            }
+
+            if (!jaExiste) {
+                ItemNota novoItem = new ItemNota(produtoSelecionado, qtd, precoUnitario);
+                notaCompra.adicionarItem(novoItem);
+            }
+
+            // atualiza tela
+            obsItensCompra.setAll(notaCompra.getItens());
+            tabelaItensCompra.refresh();
+            atualizarResumo();
+
+            // limpa os campos para o próximo item
+            cbProduto.getSelectionModel().clearSelection();
+            txtQuantidade.setText("0");
+            txtPrecoUnitario.clear();
+
+        } catch (NumberFormatException e) {
+            exibirAlerta(AlertType.ERROR, "Erro", "Digite valores numéricos válidos para quantidade e preço.");
+        }
+    }
+
+    @FXML
+    public void handleExcluirItem(ActionEvent event) {
+        ItemNota itemSelecionado = tabelaItensCompra.getSelectionModel().getSelectedItem();
+        if (itemSelecionado != null) {
+            notaCompra.getItens().remove(itemSelecionado);
+            obsItensCompra.setAll(notaCompra.getItens());
+            atualizarResumo();
+        } else {
+            exibirAlerta(AlertType.WARNING, "Nenhum item selecionado", "Selecione um item na tabela para remover.");
+        }
+    }
+
+    @FXML
+    private void handleFinalizarCompra() {
+        if (notaCompra.getItens().isEmpty()) {
+            exibirAlerta(AlertType.WARNING, "Nota Vazia", "Adicione produtos antes de finalizar a compra.");
+            return;
+        }
+
+        try {
+            // calcula antes de mandar pro banco
+            notaCompra.calcularTotal();
+
+            notaDAO.registrarNota(notaCompra, "COMPRA");
+
+            exibirAlerta(AlertType.INFORMATION, "Sucesso", "Compra registrada e estoque atualizado com sucesso!");
+
+            handleCancelarNota();
+            atualizarHistorico();
+
+        } catch (Exception e) {
+            exibirAlerta(AlertType.ERROR, "Erro", "Falha ao registrar compra no banco de dados: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleCancelarNota() {
+        notaCompra = new Nota();
+        obsItensCompra.clear();
+        atualizarResumo();
+        cbProduto.getSelectionModel().clearSelection();
+        txtQuantidade.setText("0");
+        txtPrecoUnitario.clear();
+    }
+
+    private void atualizarResumo() {
+        int qtdItensDistintos = notaCompra.getItens().size();
+        double qtdTotalProdutos = 0;
+
+        for (ItemNota item : notaCompra.getItens()) {
+            qtdTotalProdutos += item.getQuantidade();
+        }
+
+        lblQtdItens.setText(String.valueOf(qtdItensDistintos));
+        lblQtdTotal.setText(String.valueOf(qtdTotalProdutos));
+        lblValorTotal.setText(String.format("R$ %.2f", notaCompra.calcularTotal()));
+    }
+
+    private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
+
+    private void carregarPerfilUsuario() {
+        Funcionario usuarioLogado = Sessao.getUsuarioLogado();
+        if (usuarioLogado != null) {
+            lblUsuarioNome.setText(usuarioLogado.getNome());
+            String cargo = usuarioLogado.getTipo();
+            lblUsuarioCargo.setText(cargo);
+
+            if (cargo != null && cargo.equalsIgnoreCase("Funcionário")) {
+                lblUsuarioCargo.setStyle("-fx-background-color: #E0F2FE; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;");
+                lblUsuarioCargo.setTextFill(Color.web("#0369A1"));
+            } else {
+                lblUsuarioCargo.setStyle("-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;");
+                lblUsuarioCargo.setTextFill(Color.web("#432dd7"));
+            }
+        }
+    }
+
+    @FXML
+    public void handleEditarItem(ActionEvent event) {
+        // pega o item que o usuário selecionou na tabela
+        ItemNota itemSelecionado = tabelaItensCompra.getSelectionModel().getSelectedItem();
+
+        if (itemSelecionado != null) {
+            // joga os valores de volta para os campos de preenchimento
+            cbProduto.setValue(itemSelecionado.getProduto().getMarca());
+            txtQuantidade.setText(String.valueOf(itemSelecionado.getQuantidade()));
+            txtPrecoUnitario.setText(String.valueOf(itemSelecionado.getValorUnitario()));
+
+            // remove o item temporariamente da nota e da tabela
+            notaCompra.getItens().remove(itemSelecionado);
+            obsItensCompra.setAll(notaCompra.getItens());
+
+            // atualiza o resumo
+            atualizarResumo();
+        } else {
+            exibirAlerta(AlertType.WARNING, "Ação Inválida", "Selecione um produto na tabela primeiro para poder editá-lo.");
+        }
+    }
+
+    private void configurarTabelaHistorico() {
+        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        colDataHistoricoCompra.setCellValueFactory(cellData -> {
+            java.time.LocalDateTime data = cellData.getValue().getDataVenda();
+            return new SimpleStringProperty(data != null ? data.format(formatter) : "Sem data");
+        });
+
+        colTotalHistoricoCompra.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.format("R$ %.2f", cellData.getValue().getValorTotal()))
+        );
+
+        colAcoesHistoricoCompra.setCellFactory(param -> new TableCell<Nota, Void>() {
+            private final Button btn = new Button("Detalhes");
+            {
+                btn.setStyle("-fx-cursor: hand; -fx-background-color: #e0f2fe; -fx-text-fill: #0369a1; -fx-border-radius: 5px;");
+                btn.setOnAction(event -> {
+                    Nota nota = getTableView().getItems().get(getIndex());
+                    exibirAlerta(AlertType.INFORMATION, "Resumo da Compra",
+                            "ID Compra: " + nota.getId() + "\n" +
+                                    "Total: R$ " + String.format("%.2f", nota.getValorTotal()) + "\n" +
+                                    "Data: " + (nota.getDataVenda() != null ? nota.getDataVenda().format(formatter) : "-")
+                    );
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) { setGraphic(null); } else { setGraphic(btn); }
+            }
+        });
+    }
+
+    private void atualizarHistorico() {
+        try {
+            obsHistoricoCompra.clear();
+            obsHistoricoCompra.setAll(notaDAO.listarHistorico("COMPRA"));
+            tabelaHistoricoCompra.setItems(obsHistoricoCompra);
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar histórico de compras: " + e.getMessage());
+        }
+    }
+
+    @FXML private void handleIrParaDashboard(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/4. Dashboard.fxml", event); }
+    @FXML private void handleIrParaProdutos(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/5. Gerenciando Produtos.fxml", event); }
+    @FXML private void handleIrParaVendas(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/11. Tela de Vendas.fxml", event); } // Confirme o nome!
+    @FXML private void handleIrParaCompras(ActionEvent event) { /* Contexto Atual */ }
+    @FXML private void handleSair(ActionEvent event) { Navegacao.trocarTela("/Telas_fxml/1. Tela de Login 1.fxml", event); }
+}

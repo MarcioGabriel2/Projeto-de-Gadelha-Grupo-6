@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.GerenciamentoProdutosController">
+   <children>
+      <ImageView fitHeight="656.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/5_Gerenciamento_de_Produtos.png" />
+         </image>
+      </ImageView>
+
+      <TableView fx:id="tabelaProdutos" layoutX="33.0" layoutY="400.0" prefHeight="213.0" prefWidth="944.0" style="-fx-background-color: transparent;">
+         <columns>
+            <TableColumn fx:id="colMarca" prefWidth="187.0" text="Marca" />
+            <TableColumn fx:id="colCodigo" prefWidth="188.0" text="Código de Barras" />
+            <TableColumn fx:id="colTipo" prefWidth="176.0" text="Tipo" />
+            <TableColumn fx:id="colEstoque" prefWidth="105.0" text="Quantidade" />
+            <TableColumn fx:id="colPreco" prefWidth="150.0" text="Preço (R$)" />
+            <TableColumn fx:id="colAcoes" prefWidth="137.0" text="Ações" />
+         </columns>
+      </TableView>
+
+      <Button layoutX="910.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleSair" opacity="0.0" prefHeight="30.0" prefWidth="74.0" style="-fx-cursor: hand;" text="Sair" textFill="TRANSPARENT" />
+
+      <ToggleButton layoutX="32.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaDashboard" opacity="0.0" prefHeight="30.0" prefWidth="118.0" style="-fx-cursor: hand;" text="menuDashboard" textFill="TRANSPARENT" />
+
+      <ToggleButton layoutX="158.0" layoutY="74.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="110.0" style="-fx-cursor: hand;" text="menuProdutos" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="274.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaVendas" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuVendas" textFill="TRANSPARENT" />
+
+      <ToggleButton layoutX="378.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaCompras" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuCompras" textFill="TRANSPARENT" />
+
+      <ToggleButton layoutX="505.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleSubmenuTipos" opacity="0.0" prefHeight="29.0" prefWidth="470.0" style="-fx-cursor: hand;" text="submenuTipos" textFill="TRANSPARENT" />
+      <ToggleButton layoutX="33.0" layoutY="234.0" mnemonicParsing="false" opacity="0.0" prefHeight="29.0" prefWidth="470.0" style="-fx-cursor: hand;" text="submenuProdutos" textFill="TRANSPARENT" />
+
+      <Button fx:id="btnNovoProduto" layoutX="832.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleCriarNovoProduto" opacity="0.0" prefHeight="36.0" prefWidth="145.86" style="-fx-cursor: hand;" text="+ Novo Produto" textFill="TRANSPARENT" />
+
+      <HBox alignment="CENTER" layoutX="720.0" layoutY="23.0" spacing="10.0" AnchorPane.rightAnchor="109.0">
+         <children>
+            <ImageView fx:id="imgUsuarioIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/icon_pessoa.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblUsuarioNome" text="Carregando...">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsuarioCargo" alignment="CENTER" prefHeight="22.0" style="-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;" text="Cargo" textFill="#432dd7">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

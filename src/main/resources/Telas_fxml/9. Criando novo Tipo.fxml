@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.CriandoTipoController">
+   <children>
+      <ImageView fitHeight="690.0" fitWidth="1025.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagens/9_Criando_novo_Tipo.png" />
+         </image>
+      </ImageView>
+
+      <HBox alignment="CENTER" layoutX="713.0" layoutY="21.0" spacing="10.0" AnchorPane.rightAnchor="116.0">
+         <children>
+            <ImageView fx:id="imgUsuarioIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/icon_pessoa.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblUsuarioNome" text="Carregando...">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsuarioCargo" alignment="CENTER" prefHeight="22.0" style="-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;" text="Cargo" textFill="#432dd7">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+
+      <Button layoutX="902.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleSair" opacity="0.0" prefHeight="30.0" prefWidth="74.0" style="-fx-cursor: hand;" text="Sair" />
+      <ToggleButton layoutX="24.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaDashboard" opacity="0.0" prefHeight="30.0" prefWidth="118.0" style="-fx-cursor: hand;" text="menuDashboard" />
+      <ToggleButton layoutX="150.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" opacity="0.0" prefHeight="30.0" prefWidth="110.0" style="-fx-cursor: hand;" text="menuProdutos" />
+      <ToggleButton layoutX="266.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaVendas" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuVendas" />
+      <ToggleButton layoutX="370.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleIrParaCompras" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuCompras" />
+
+      <Button layoutX="724.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleFechar" opacity="0.0" prefHeight="16.0" prefWidth="16.0" style="-fx-cursor: hand;" text="X" />
+      <Button layoutX="644.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleCadastrarTipo" opacity="0.0" prefHeight="35.0" prefWidth="92.0" style="-fx-cursor: hand;" text="Cadastrar" />
+
+      <TextField fx:id="txtNomeTipo" layoutX="273.0" layoutY="345.0" prefHeight="36.0" prefWidth="462.0" promptText="Ex: Bebidas, Limpeza..." style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a; -fx-font-size: 14px;" />
+
+      <MenuButton fx:id="menuFormaVenda" layoutX="273.0" layoutY="422.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="462.0" style="-fx-background-color: transparent; -fx-text-fill: #1a1a1a; -fx-font-size: 14px;" text="Selecione a forma de venda">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleSelecaoUnidade" text="Unidade" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSelecaoQuilo" text="Quilo" />
+            <MenuItem mnemonicParsing="false" onAction="#handleSelecaoLitro" text="Litro" />
+         </items>
+      </MenuButton>
+   </children>
+</AnchorPane>

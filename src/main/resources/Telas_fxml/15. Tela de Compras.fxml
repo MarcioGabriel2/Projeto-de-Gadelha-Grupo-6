@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufersa.SistemaDeLogin.controller.ComprasController">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1010.0">
+         <children>
+            <ImageView fitHeight="711.0" fitWidth="1010.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/15_Compras_1.png" />
+               </image>
+            </ImageView>
+      
+            <HBox alignment="CENTER" layoutX="728.0" layoutY="21.0" spacing="10.0" AnchorPane.rightAnchor="101.0">
+               <children>
+                  <ImageView fx:id="imgUsuarioIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagens/icon_pessoa.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblUsuarioNome" text="Carregando...">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblUsuarioCargo" alignment="CENTER" prefHeight="22.0" style="-fx-background-color: #E2E0FA; -fx-background-radius: 15px; -fx-padding: 2px 10px; -fx-font-weight: bold;" text="Cargo" textFill="#432dd7">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+      
+            <ToggleButton layoutX="39.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleIrParaDashboard" opacity="0.0" prefHeight="30.0" prefWidth="118.0" style="-fx-cursor: hand;" text="menuDashboard" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="164.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleIrParaProdutos" opacity="0.0" prefHeight="30.0" prefWidth="110.0" style="-fx-cursor: hand;" text="menuProdutos" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="283.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleIrParaVendas" opacity="0.0" prefHeight="30.0" prefWidth="96.0" style="-fx-cursor: hand;" text="menuVendas" textFill="TRANSPARENT" />
+            <ToggleButton layoutX="387.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleIrParaCompras" opacity="0.0" prefHeight="30.0" prefWidth="104.0" style="-fx-cursor: hand;" text="menuCompras" textFill="TRANSPARENT" />
+            <Button layoutX="917.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleSair" opacity="0.0" prefHeight="30.0" prefWidth="74.0" style="-fx-cursor: hand;" text="Sair" textFill="TRANSPARENT" />
+      
+            <ComboBox fx:id="cbProduto" layoutX="65.0" layoutY="321.0" prefHeight="36.0" prefWidth="180.0" promptText="Selecione o Produto" style="-fx-background-color: transparent; -fx-border-color: #d1d5db; -fx-border-radius: 5px;" />
+      
+            <TextField fx:id="txtQuantidade" layoutX="262.0" layoutY="321.0" prefHeight="36.0" prefWidth="180.0" promptText="Qtd" style="-fx-background-color: transparent; -fx-border-color: #d1d5db; -fx-border-radius: 5px;" text="0" />
+      
+            <TextField fx:id="txtPrecoUnitario" layoutX="458.0" layoutY="321.0" prefHeight="36.0" prefWidth="180.0" promptText="Custo Unitário (R$)" style="-fx-background-color: transparent; -fx-border-color: #d1d5db; -fx-border-radius: 5px;" />
+      
+            <Button layoutX="66.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleAdicionarCompra" opacity="0.0" prefHeight="36.0" prefWidth="573.0" style="-fx-cursor: hand;" text="+ Adicionar à Compra" />
+      
+            <TableView fx:id="tabelaItensCompra" layoutX="57.0" layoutY="522.0" prefHeight="141.0" prefWidth="590.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 8px;">
+               <columns>
+                  <TableColumn fx:id="colProdutoCompra" prefWidth="250.0" text="Produto" />
+                  <TableColumn fx:id="colQtdCompra" prefWidth="100.0" text="Qtd" />
+                  <TableColumn fx:id="colPrecoCompra" prefWidth="120.0" text="Custo Unit." />
+                  <TableColumn fx:id="colSubtotalCompra" prefWidth="118.0" text="Subtotal" />
+               </columns>
+            </TableView>
+      
+            <Button layoutX="446.0" layoutY="475.0" mnemonicParsing="false" onAction="#handleExcluirItem" prefHeight="30.0" prefWidth="200.0" style="-fx-cursor: hand; -fx-background-color: #fee2e2; -fx-text-fill: #b91c1c; -fx-border-color: #f87171; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remover Selecionado" />
+      
+            <Label fx:id="lblQtdItens" alignment="CENTER_RIGHT" layoutX="883.0" layoutY="282.0" prefWidth="70.0" text="0" textFill="#111827">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblQtdTotal" alignment="CENTER_RIGHT" layoutX="883.0" layoutY="317.0" prefWidth="70.0" text="0" textFill="#111827">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblValorTotal" alignment="CENTER_RIGHT" layoutX="780.0" layoutY="367.0" prefHeight="35.0" prefWidth="175.0" text="R$ 0.00" textFill="#ff5a1f">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+      
+            <Button layoutX="711.0" layoutY="437.0" mnemonicParsing="false" onAction="#handleFinalizarCompra" opacity="0.0" prefHeight="36.0" prefWidth="250.0" style="-fx-cursor: hand;" text="Finalizar Compra" />
+            <Button layoutX="712.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleCancelarNota" opacity="0.0" prefHeight="36.0" prefWidth="250.0" style="-fx-cursor: hand;" text="Cancelar Nota" />
+      
+            <Label layoutX="57.0" layoutY="690.0" text="Histórico de Compras" textFill="#111827">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+      
+            <TableView fx:id="tabelaHistoricoCompra" layoutX="57.0" layoutY="730.0" prefHeight="200.0" prefWidth="904.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-radius: 8px;">
+               <columns>
+                  <TableColumn fx:id="colDataHistoricoCompra" prefWidth="250.0" text="Data" />
+                  <TableColumn fx:id="colTotalHistoricoCompra" prefWidth="450.0" text="Total" />
+                  <TableColumn fx:id="colAcoesHistoricoCompra" prefWidth="200.0" text="Ações" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
