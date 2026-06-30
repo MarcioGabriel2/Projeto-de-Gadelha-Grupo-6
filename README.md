@@ -41,6 +41,4 @@ Leo:
 - Testou o projeto final
 - Implementação do historico de compra, correção do de vendas
 
-OBS: Anteriormente à essa versão, A última que foi upada no github foi a branch Projeto-Final-Incompleto, depois disso essa versão final foi committada (upada) de uma vez só. Isso ocorreu por causa de alguns problemas no git 
-de alguns membros, nesse meio tempo realizamos a troca de código por meio de pastas compactadas, então nesse período não ficou muita coisa registrada no Github. Também foi por causa desses problemas no git que esse projeto final
-foi committado em uma branch nova ao invés de atualizar a branch do Projeto-Final-Incompleto.
+OBS: Anteriormente à essa versão, A última que foi upada no github foi a branch Projeto-Final-Completo (Com uma anterior chamada de Projeto-Final-Incompleto), depois disso essa versão final foi committada (upada) de uma vez só. Isso ocorreu por causa de alguns problemas no git de alguns membros, nesse meio tempo realizamos a troca de código por meio de pastas compactadas, então nesse período não ficou muita coisa registrada nos commits do Github.
