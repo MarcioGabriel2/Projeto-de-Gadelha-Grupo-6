@@ -75,9 +75,9 @@
 
          <TableView fx:id="tabelaTipos" layoutX="25.0" layoutY="65.0" prefHeight="250.0" prefWidth="900.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
             <columns>
-               <TableColumn prefWidth="400.0" text="Nome do Tipo" />
-               <TableColumn prefWidth="350.0" text="Forma de Venda" />
-               <TableColumn prefWidth="150.0" text="Ações" />
+               <TableColumn fx:id="colunaNome" prefWidth="400.0" text="Nome do Tipo" />
+               <TableColumn fx:id="colunaFormaVenda" prefWidth="350.0" text="Forma de Venda" />
+               <TableColumn fx:id="colunaAcoes" prefWidth="150.0" text="Ações" />
             </columns>
          </TableView>
       </children>

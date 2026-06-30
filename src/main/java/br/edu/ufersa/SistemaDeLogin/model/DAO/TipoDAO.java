@@ -47,4 +47,21 @@ public class TipoDAO {
         }
         return tipos;
     }
+    public boolean atualizar(Tipo tipo) {
+        String sql = "UPDATE tb_tipo SET nome = ?, forma_venda = ? WHERE id = ?";
+
+        try (Connection con = Conexao.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, tipo.getNome());
+            stmt.setString(2, tipo.getFormaVenda());
+            stmt.setInt(3, tipo.getId());
+
+            int linhasAfetadas = stmt.executeUpdate();
+            return linhasAfetadas > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao atualizar tipo: " + e.getMessage());
+        }
+    }
 }
