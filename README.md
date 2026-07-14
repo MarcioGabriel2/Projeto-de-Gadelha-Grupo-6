@@ -1,15 +1,32 @@
-Olá, esse foi um projeto da disciplina de Programação Orientada a Objetos feita por três alunos, o foco era criar um sistema de supermercados.
+Olá, esse foi um projeto da disciplina de Programação Orientada a Objetos feita por três alunos, o foco era criar um sistema de supermercados. 
 
-Lista de Autores (Alunos):
+O programa foi feito com o intuito de ser utilizado com a Intellij IDEA, deve ser incializado a partir do Launcher.java, que fica dentro da pasta view ("br/edu/ufersaSistemaDeLogin -> view -> Launcher.java")
+
+Utilizamos a linguagem de programação Java durante todo o projeto, Utilizamos as seguintes ferramentas no desenvolvimento:
+**> Código**
+- Intellij IDEA
+- Java
+- Gerenciador de dependências "Maven"
+**> Interface**
+- Figma
+- JavaFX (Scene Builder)
+**> Banco de dados**
+- Xampp
+- MySQL
+
+*OBS: Também utilizamos ferramentas de IA durante o desenvolvimento.*
+
+================================Parte Institucional================================
+
+**Lista de Autores (Alunos):**
 - Marcio Gabriel Silva de Moura
 - Leonardo Silva Gama
 - Eloisa Gomes da Mota Torres
 
-Orientador (Professor):
+**Orientador (Professor):**
 - Paulo Gabriel Gadelha Queiroz
 
-================Divisão dos Trabalhos================
-
+**> Divisão dos Trabalhos:**
 Eloisa: 
 - Criou a maior parte das telas no Figma
 - Atualizou o Diagrama de classes com os relacionamentos entre as classes
