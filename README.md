@@ -30,6 +30,7 @@ Utilizamos a linguagem de programação Java durante todo o projeto, Utilizamos 
 - Paulo Gabriel Gadelha Queiroz
 
 **> Divisão dos Trabalhos:**
+
 Eloisa: 
 - Criou a maior parte das telas no Figma
 - Atualizou o Diagrama de classes com os relacionamentos entre as classes
